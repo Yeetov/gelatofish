@@ -4,104 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Team Gelatofish</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
-
     body {
-      margin: 0;
-      padding: 0;
       font-family: 'Quicksand', sans-serif;
       background: linear-gradient(160deg, #a3cef1, #f3c1e8);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      color: #333;
-      text-align: center;
     }
 
-    header {
-      margin-top: 3rem;
-    }
-
-    h1 {
-      font-size: 3rem;
-      color: #fff;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.25);
-      margin-bottom: 1rem;
-    }
-
-    img.logo {
-      width: 250px;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 12px 24px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    img.logo:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.35);
-    }
-
-    section {
-      background: rgba(255,255,255,0.85);
-      margin: 2rem;
-      padding: 2rem;
-      border-radius: 25px;
-      max-width: 800px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      font-size: 2rem;
-      color: #333;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      color: #555;
-      line-height: 1.6;
-    }
-
-    ul {
-      text-align: left;
-      margin: 1rem auto 0;
-      padding-left: 1.2rem;
-    }
-
-    ul li {
-      margin-bottom: 0.8rem;
-    }
-
-    footer {
-      margin-top: auto;
-      padding: 2rem 0;
-      font-size: 1rem;
-      color: #fff;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    }
-
-    /* Optional subtle bubble animation background */
-    .bubble-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
-
+    /* Floating bubbles background */
     .bubble {
       position: absolute;
-      bottom: -50px;
-      width: 20px;
-      height: 20px;
-      background: rgba(255, 255, 255, 0.3);
       border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
       animation: rise 15s infinite linear;
     }
 
@@ -110,38 +24,46 @@
       50% { opacity: 0.6; }
       100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
     }
-
   </style>
 </head>
-<body>
-  <!-- Optional Bubble Background -->
-  <div class="bubble-bg">
-    <div class="bubble" style="left:10%; animation-duration:12s;"></div>
-    <div class="bubble" style="left:30%; animation-duration:15s;"></div>
-    <div class="bubble" style="left:50%; animation-duration:18s;"></div>
-    <div class="bubble" style="left:70%; animation-duration:14s;"></div>
-    <div class="bubble" style="left:90%; animation-duration:20s;"></div>
-  </div>
+<body class="flex flex-col items-center min-h-screen text-gray-800 relative overflow-hidden">
 
-  <header>
-    <h1>Team Gelatofish</h1>
-    <img class="logo" src="https://i.ibb.co/My0HrGBx/Chat-GPT-Image-Dec-22-2025-12-10-48-AM.png" alt="Team Gelatofish Logo">
+  <!-- Optional bubbles -->
+  <div class="bubble w-6 h-6" style="left:10%; animation-duration:12s;"></div>
+  <div class="bubble w-8 h-8" style="left:30%; animation-duration:15s;"></div>
+  <div class="bubble w-10 h-10" style="left:50%; animation-duration:18s;"></div>
+  <div class="bubble w-6 h-6" style="left:70%; animation-duration:14s;"></div>
+  <div class="bubble w-8 h-8" style="left:90%; animation-duration:20s;"></div>
+
+  <!-- Logo & title -->
+  <header class="mt-16 flex flex-col items-center space-y-6">
+    <img class="w-64 rounded-xl shadow-2xl hover:scale-105 transition-transform" src="https://i.ibb.co/My0HrGBx/Chat-GPT-Image-Dec-22-2025-12-10-48-AM.png" alt="Team Gelatofish Logo">
+    <h1 class="text-4xl font-bold text-white drop-shadow-lg">Team Gelatofish</h1>
   </header>
 
-  <section>
-    <h2>Our Goals</h2>
-    <p>Team Gelatofish is a collective of developers and creators working to make Discord a friendlier, more accessible, and fun platform for everyone. We focus on:</p>
-    <ul>
-      <li>Providing **animated profile pictures** and custom avatar features for everyone, without requiring Nitro.</li>
-      <li>Creating **custom decorations, banners, and badges** that users can enjoy safely and legally.</li>
-      <li>Supporting the community with tools that **enhance Discord experience** without unnecessary subscriptions.</li>
-      <li>Encouraging **creativity, fun, and accessibility** for all users.</li>
-    </ul>
-    <p>We are proud to partner with projects like UserPFP, Decor, Blackbox, and Obaworkshop to bring free and exciting features to the Discord community.</p>
-  </section>
+  <!-- Info section -->
+  <main class="mt-12 w-full max-w-3xl px-6">
+    <div class="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-xl">
+      <h2 class="text-2xl font-semibold mb-4">Our Goals</h2>
+      <p class="mb-4">
+        Team Gelatofish is dedicated to making Discord more fun, creative, and accessible for everyone. We focus on providing features for users without Nitro, supporting customization, and fostering community creativity.
+      </p>
+      <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>Animated profile pictures and dynamic avatars without Nitro.</li>
+        <li>Custom avatar decorations, frames, and banners.</li>
+        <li>Custom badges for community engagement and personalization.</li>
+        <li>Collaborations with projects like UserPFP, Decor, Blackbox, and Obaworkshop.</li>
+      </ul>
+    </div>
+  </main>
 
-  <footer>
-    &copy; 2025 Team Gelatofish | Making Discord fun for everyone
+  <!-- Partner badge -->
+  <footer class="mt-12 mb-16">
+    <a href="https://userpfp.vercel.app/" target="_blank" class="inline-flex items-center gap-3 bg-pink-200/80 hover:bg-pink-300/90 rounded-xl px-4 py-2 shadow-lg transition-colors">
+      <img src="https://i.ibb.co/My0HrGBx/Chat-GPT-Image-Dec-22-2025-12-10-48-AM.png" alt="Team Gelatofish Logo" class="w-10 h-10 rounded-full">
+      <span class="font-semibold text-gray-800">Team Gelatofish Partner</span>
+    </a>
   </footer>
+
 </body>
 </html>
