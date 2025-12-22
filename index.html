@@ -5,37 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Team Gelatofish</title>
   <style>
-    /* Reset and basic styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #a3cef1, #f3c1e8);
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(160deg, #a3cef1, #f3c1e8);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
       color: #333;
       text-align: center;
     }
 
+    header {
+      margin-top: 3rem;
+    }
+
     h1 {
       font-size: 3rem;
-      margin-bottom: 2rem;
       color: #fff;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.25);
+      margin-bottom: 1rem;
     }
 
     img.logo {
       width: 250px;
       height: auto;
       border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -44,17 +45,103 @@
       box-shadow: 0 15px 30px rgba(0,0,0,0.35);
     }
 
+    section {
+      background: rgba(255,255,255,0.85);
+      margin: 2rem;
+      padding: 2rem;
+      border-radius: 25px;
+      max-width: 800px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
     p {
-      margin-top: 1.5rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    ul {
+      text-align: left;
+      margin: 1rem auto 0;
+      padding-left: 1.2rem;
+    }
+
+    ul li {
+      margin-bottom: 0.8rem;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 2rem 0;
+      font-size: 1rem;
       color: #fff;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     }
+
+    /* Optional subtle bubble animation background */
+    .bubble-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -50px;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: rise 15s infinite linear;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0) scale(1); opacity: 0.3; }
+      50% { opacity: 0.6; }
+      100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+    }
+
   </style>
 </head>
 <body>
-  <h1>Team Gelatofish</h1>
-  <img class="logo" src="https://i.ibb.co/My0HrGBx/Chat-GPT-Image-Dec-22-2025-12-10-48-AM.png" alt="Team Gelatofish Logo">
-  <p>Welcome to the official Team Gelatofish hub!</p>
+  <!-- Optional Bubble Background -->
+  <div class="bubble-bg">
+    <div class="bubble" style="left:10%; animation-duration:12s;"></div>
+    <div class="bubble" style="left:30%; animation-duration:15s;"></div>
+    <div class="bubble" style="left:50%; animation-duration:18s;"></div>
+    <div class="bubble" style="left:70%; animation-duration:14s;"></div>
+    <div class="bubble" style="left:90%; animation-duration:20s;"></div>
+  </div>
+
+  <header>
+    <h1>Team Gelatofish</h1>
+    <img class="logo" src="https://i.ibb.co/My0HrGBx/Chat-GPT-Image-Dec-22-2025-12-10-48-AM.png" alt="Team Gelatofish Logo">
+  </header>
+
+  <section>
+    <h2>Our Goals</h2>
+    <p>Team Gelatofish is a collective of developers and creators working to make Discord a friendlier, more accessible, and fun platform for everyone. We focus on:</p>
+    <ul>
+      <li>Providing **animated profile pictures** and custom avatar features for everyone, without requiring Nitro.</li>
+      <li>Creating **custom decorations, banners, and badges** that users can enjoy safely and legally.</li>
+      <li>Supporting the community with tools that **enhance Discord experience** without unnecessary subscriptions.</li>
+      <li>Encouraging **creativity, fun, and accessibility** for all users.</li>
+    </ul>
+    <p>We are proud to partner with projects like UserPFP, Decor, Blackbox, and Obaworkshop to bring free and exciting features to the Discord community.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Team Gelatofish | Making Discord fun for everyone
+  </footer>
 </body>
 </html>
