@@ -1,69 +1,829 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Team Gelatofish</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(160deg, #a3cef1, #f3c1e8);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Team Gelatofish: A team of passionate Discord users building unofficial customization tools including animated avatars, badges, and decorations.">
+    <title>Team Gelatofish | Sweetening Discord</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Quicksand', 'sans-serif'],
+                        heading: ['Fredoka', 'sans-serif'],
+                    },
+                    colors: {
+                        gelato: {
+                            blue: '#a3cef1',
+                            pink: '#f3c1e8',
+                            dark: '#0f0c29', 
+                            berry: '#302b63',
+                        },
+                        brand: {
+                            userpfp: '#00ff9d',
+                            blackbox: '#ffffff',
+                            oba: '#f97316',
+                            decor: '#a855f7',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'wiggle': 'wiggle 3s ease-in-out infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'pulse-glow': 'pulse-glow 4s infinite',
+                        'gradient-x': 'gradient-x 15s ease infinite',
+                        'swim-footer': 'swimFooter 3s ease-in-out infinite',
+                        'bounce-subtle': 'bounceSubtle 2s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '200% 0' },
+                            '100%': { backgroundPosition: '-200% 0' }
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: 0.5, transform: 'scale(1)' },
+                            '50%': { opacity: 0.8, transform: 'scale(1.1)' },
+                        },
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            },
+                        },
+                        swimFooter: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '25%': { transform: 'translateY(-2px) rotate(-5deg)' },
+                            '75%': { transform: 'translateY(2px) rotate(5deg)' },
+                        },
+                        bounceSubtle: {
+                            '0%, 100%': { transform: 'translateY(-25%)', animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)' },
+                            '50%': { transform: 'translateY(0)', animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-    /* Floating bubbles background */
-    .bubble {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.25);
-      animation: rise 15s infinite linear;
-    }
+    <style>
+        /* --- Base Accessibility & Settings --- */
+        :focus-visible {
+            outline: 3px solid #f472b6; /* Pink-400 */
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
 
-    @keyframes rise {
-      0% { transform: translateY(0) scale(1); opacity: 0.3; }
-      50% { opacity: 0.6; }
-      100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
-    }
-  </style>
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* --- Backgrounds --- */
+        body {
+            transition: background 0.5s ease, color 0.5s ease;
+            /* Default Light Mode Background (Ocean/Pastel) */
+            background: linear-gradient(135deg, #e0f2fe 0%, #ffe4e6 50%, #fae8ff 100%);
+            min-height: 100vh;
+        }
+
+        /* Dark Mode Override (Midnight Galaxy) */
+        html.dark body {
+            background: radial-gradient(circle at 50% -20%, #4c1d95 0%, #1e1b4b 40%, #020617 100%);
+            background-attachment: fixed;
+        }
+
+        /* --- Glassmorphism --- */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            transition: all 0.3s ease;
+        }
+        .dark .glass-panel {
+            /* Darker, purpler glass for better text readability */
+            background: rgba(15, 10, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+        }
+        
+        .glass-panel:hover {
+            border-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.2);
+        }
+        .dark .glass-panel:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 40px -10px rgba(139, 92, 246, 0.2); /* Purple glow on hover */
+        }
+
+        /* --- Utilities --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Stagger delays for grid items */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* --- Fish Animations --- */
+        .fish-wrapper {
+            position: absolute;
+            will-change: transform;
+            pointer-events: none;
+        }
+        
+        /* Basic Swim Animation */
+        @keyframes swimRight {
+            from { transform: translateX(-100vw); }
+            to { transform: translateX(100vw); }
+        }
+        @keyframes swimLeft {
+            from { transform: translateX(100vw); }
+            to { transform: translateX(-100vw); }
+        }
+
+        /* Shimmer Button */
+        .btn-shimmer {
+            background: linear-gradient(110deg, #4f46e5 45%, #818cf8 50%, #4f46e5 55%);
+            background-size: 250% 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        .btn-shimmer:hover::after {
+            left: 100%;
+        }
+        .btn-shimmer:hover {
+            animation: shimmer 1.5s linear infinite;
+        }
+
+        /* --- Text with Conformed Sprinkles --- */
+        .animate-gradient-text {
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='50' height='50' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='10' y='10' width='8' height='3' rx='1.5' fill='%23f472b6' transform='rotate(45 14 11.5)'/%3E%3Crect x='30' y='5' width='8' height='3' rx='1.5' fill='%23facc15' transform='rotate(-20 34 6.5)'/%3E%3Crect x='10' y='35' width='8' height='3' rx='1.5' fill='%2360a5fa' transform='rotate(80 14 36.5)'/%3E%3Crect x='35' y='30' width='8' height='3' rx='1.5' fill='%23ffffff' transform='rotate(10 39 31.5)'/%3E%3C/svg%3E"),
+                linear-gradient(to right, #ec4899, #a855f7, #4f46e5); 
+            background-size: 40px 40px, 200% auto;
+            background-repeat: repeat, no-repeat;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient-x 4s linear infinite;
+        }
+        
+        .dark .animate-gradient-text {
+             background-image: 
+                url("data:image/svg+xml,%3Csvg width='50' height='50' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='10' y='10' width='8' height='3' rx='1.5' fill='%23f472b6' transform='rotate(45 14 11.5)'/%3E%3Crect x='30' y='5' width='8' height='3' rx='1.5' fill='%23facc15' transform='rotate(-20 34 6.5)'/%3E%3Crect x='10' y='35' width='8' height='3' rx='1.5' fill='%2360a5fa' transform='rotate(80 14 36.5)'/%3E%3Crect x='35' y='30' width='8' height='3' rx='1.5' fill='%23ffffff' transform='rotate(10 39 31.5)'/%3E%3C/svg%3E"),
+                linear-gradient(to right, #e879f9, #c084fc, #22d3ee); 
+        }
+
+        /* --- Bubble Background --- */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: rise infinite linear;
+            pointer-events: none;
+            bottom: -50px;
+        }
+        html.dark .bubble {
+            background: radial-gradient(circle at 30% 30%, rgba(167, 139, 250, 0.4), rgba(139, 92, 246, 0.05));
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+        }
+        @keyframes rise {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+        }
+
+        /* --- "Think Fast" Flashbang Transition (Dark -> Light) --- */
+        #flashbang-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #flashbang-overlay.active {
+            pointer-events: all;
+        }
+
+        /* The Grenade flying in */
+        @keyframes grenadeThrow {
+            0% { transform: translate(100vw, 100vh) rotate(0deg) scale(0.5); opacity: 1; }
+            70% { transform: translate(0, 0) rotate(-720deg) scale(1.5); opacity: 1; }
+            90% { transform: translate(0, 0) rotate(-720deg) scale(1.5); opacity: 1; }
+            100% { transform: translate(0, 0) rotate(-720deg) scale(1.5); opacity: 0; }
+        }
+
+        /* The Pin flying off */
+        @keyframes pinFly {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+            20% { transform: translate(50px, -50px) rotate(45deg); opacity: 1; }
+            100% { transform: translate(300px, -300px) rotate(180deg); opacity: 0; }
+        }
+
+        /* "THINK FAST" Text pop */
+        @keyframes textPop {
+            0% { transform: scale(0); opacity: 0; }
+            60% { transform: scale(0); opacity: 0; }
+            70% { transform: scale(1.2); opacity: 1; } 
+            85% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* The White Flash */
+        @keyframes pureWhiteFlash {
+            0% { opacity: 0; }
+            20% { opacity: 0; } /* Wait for grenade */
+            22% { opacity: 1; } /* BOOM */
+            65% { opacity: 1; } /* Hold White */
+            100% { opacity: 0; } /* Fade out */
+        }
+
+        .run-flashbang #grenade-group {
+            animation: grenadeThrow 1s ease-out forwards;
+        }
+        .run-flashbang #grenade-pin {
+            animation: pinFly 1s ease-out forwards;
+        }
+        .run-flashbang #think-fast-text {
+            animation: textPop 1s ease-out forwards;
+        }
+        .run-flashbang #flash-screen {
+            animation: pureWhiteFlash 4s ease-out forwards;
+        }
+
+        /* --- Deep Dive Transition (Light -> Dark) --- */
+        #deep-dive-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            pointer-events: none;
+            transform: translateY(100%);
+            background: linear-gradient(to top, #0f0c29, #302b63, #24243e);
+        }
+        
+        @keyframes diveWave {
+            0% { transform: translateY(100%); }
+            40% { transform: translateY(0%); } /* Full Coverage */
+            60% { transform: translateY(0%); } /* Pause */
+            100% { transform: translateY(-100%); } /* Move up and away */
+        }
+
+        .run-dive-animation {
+            animation: diveWave 2.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(156, 163, 175, 0.3); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(156, 163, 175, 0.5); }
+    </style>
 </head>
-<body class="flex flex-col items-center min-h-screen text-gray-800 relative overflow-hidden">
+<body class="text-gray-900 dark:text-gray-100 min-h-screen relative overflow-x-hidden selection:bg-pink-300 selection:text-pink-900">
 
-  <!-- Optional bubbles -->
-  <div class="bubble w-6 h-6" style="left:10%; animation-duration:12s;"></div>
-  <div class="bubble w-8 h-8" style="left:30%; animation-duration:15s;"></div>
-  <div class="bubble w-10 h-10" style="left:50%; animation-duration:18s;"></div>
-  <div class="bubble w-6 h-6" style="left:70%; animation-duration:14s;"></div>
-  <div class="bubble w-8 h-8" style="left:90%; animation-duration:20s;"></div>
-
-  <!-- Logo & title -->
-  <header class="mt-16 flex flex-col items-center space-y-6">
-    <img class="w-64 rounded-xl shadow-2xl hover:scale-105 transition-transform" src="https://i.ibb.co/My0HrGBx/Chat-GPT-Image-Dec-22-2025-12-10-48-AM.png" alt="Team Gelatofish Logo">
-    <h1 class="text-4xl font-bold text-white drop-shadow-lg">Team Gelatofish</h1>
-  </header>
-
-  <!-- Info section -->
-  <main class="mt-12 w-full max-w-3xl px-6">
-    <div class="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-xl">
-      <h2 class="text-2xl font-semibold mb-4">Our Goals</h2>
-      <p class="mb-4">
-        Team Gelatofish is dedicated to making Discord more fun, creative, and accessible for everyone. We focus on providing features for users without Nitro, supporting customization, and fostering community creativity.
-      </p>
-      <ul class="list-disc list-inside space-y-2 text-gray-700">
-        <li>Animated profile pictures and dynamic avatars without Nitro.</li>
-        <li>Custom avatar decorations, frames, and banners.</li>
-        <li>Custom badges for community engagement and personalization.</li>
-        <li>Collaborations with projects like UserPFP, Decor, Blackbox, and Obaworkshop.</li>
-      </ul>
+    <!-- Think Fast Flashbang Overlay (Dark -> Light) -->
+    <div id="flashbang-overlay">
+        <!-- White Flash Screen (Covers everything) -->
+        <div id="flash-screen" class="absolute inset-0 bg-white opacity-0 pointer-events-none z-50"></div>
+        
+        <!-- Content Container -->
+        <div class="relative z-40 flex flex-col items-center justify-center">
+            <h2 id="think-fast-text" class="text-7xl md:text-9xl font-heading font-black text-white italic tracking-tighter drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)] opacity-0 absolute mb-60 z-50 whitespace-nowrap stroke-black" style="-webkit-text-stroke: 3px black;">
+                THINK FAST!
+            </h2>
+            
+            <!-- Grenade SVG -->
+            <svg id="grenade-svg" viewBox="0 0 140 140" class="w-48 h-64 opacity-1 filter drop-shadow-2xl overflow-visible">
+                <g id="grenade-group" class="opacity-0">
+                    <!-- Body -->
+                    <rect x="40" y="40" width="60" height="80" rx="10" fill="#4b5563" stroke="#1f2937" stroke-width="3"/>
+                    <!-- Ridges -->
+                    <path d="M40 60 L 100 60 M 40 80 L 100 80 M 40 100 L 100 100" stroke="#1f2937" stroke-width="2"/>
+                    <!-- Top mechanism -->
+                    <rect x="55" y="20" width="30" height="20" fill="#374151" stroke="#1f2937" stroke-width="2"/>
+                    <rect x="65" y="10" width="10" height="15" fill="#9ca3af"/>
+                    <!-- Lever -->
+                    <path d="M60 25 L 30 35 L 30 100" stroke="#d1d5db" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <!-- Red Stripe -->
+                    <rect x="40" y="50" width="60" height="5" fill="#ef4444" opacity="0.8"/>
+                    
+                    <!-- Detached Pin flying away -->
+                    <g id="grenade-pin" style="transform-origin: center;">
+                        <circle cx="100" cy="30" r="10" fill="none" stroke="#d1d5db" stroke-width="3"/>
+                        <path d="M90 30 L 80 30" stroke="#d1d5db" stroke-width="3"/>
+                    </g>
+                </g>
+            </svg>
+        </div>
     </div>
-  </main>
 
-  <!-- Partner badge -->
-  <footer class="mt-12 mb-16">
-    <a href="https://userpfp.vercel.app/" target="_blank" class="inline-flex items-center gap-3 bg-pink-200/80 hover:bg-pink-300/90 rounded-xl px-4 py-2 shadow-lg transition-colors">
-      <img src="https://i.ibb.co/My0HrGBx/Chat-GPT-Image-Dec-22-2025-12-10-48-AM.png" alt="Team Gelatofish Logo" class="w-10 h-10 rounded-full">
-      <span class="font-semibold text-gray-800">Team Gelatofish Partner</span>
+    <!-- Deep Dive Transition Overlay (Light -> Dark) -->
+    <div id="deep-dive-overlay" class="flex flex-col items-center justify-center text-white">
+        <div class="animate-bounce mb-4">
+            <svg class="w-16 h-16 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+        <h2 class="text-3xl font-heading font-bold tracking-widest uppercase">Going Deep</h2>
+    </div>
+
+    <!-- Accessibility: Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-white text-indigo-600 font-bold rounded-lg shadow-lg">
+        Skip to main content
     </a>
-  </footer>
 
+    <!-- Aquarium Container (Fixed Background) -->
+    <div id="aquarium" class="fixed inset-0 z-0 pointer-events-none overflow-hidden opacity-30 dark:opacity-60 transition-opacity duration-1000">
+        <!-- Fish and Bubbles will be injected here via JS -->
+    </div>
+    
+    <!-- Separate Bubble Container for better layering -->
+    <div id="bubble-container" class="fixed inset-0 z-0 pointer-events-none overflow-hidden"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 border-b border-transparent" id="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group focus:rounded-lg" aria-label="Team Gelatofish Home">
+                    <div class="w-10 h-10 bg-white/90 dark:bg-indigo-950/50 rounded-full flex items-center justify-center backdrop-blur-md shadow-sm group-hover:rotate-12 transition-transform duration-500 border border-white/40 dark:border-white/10">
+                       <svg viewBox="0 0 100 100" class="w-6 h-6 text-pink-500 dark:text-fuchsia-400" aria-hidden="true" fill="currentColor">
+                           <path d="M50 20 C30 20 15 35 15 55 C15 75 30 90 50 90 C70 90 85 75 85 55 C85 35 70 20 50 20 Z" opacity="0.9"/>
+                           <path d="M85 55 L98 40 L98 70 Z" />
+                           <circle cx="35" cy="45" r="5" fill="white"/>
+                           <path d="M50 15 L30 35 L70 35 Z" class="text-yellow-400 dark:text-violet-500" fill="currentColor" />
+                       </svg>
+                    </div>
+                    <span class="font-heading font-bold text-xl tracking-wide group-hover:text-pink-600 dark:group-hover:text-fuchsia-300 transition-colors">Gelatofish</span>
+                </a>
+
+                <!-- Controls -->
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle" class="p-2.5 rounded-full glass-panel hover:bg-white dark:hover:bg-white/10 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 group relative overflow-hidden" aria-label="Toggle Dark Mode">
+                        <!-- Sun -->
+                        <svg class="w-5 h-5 hidden dark:block text-yellow-300 drop-shadow-[0_0_8px_rgba(253,224,71,0.5)] group-hover:rotate-90 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <!-- Moon -->
+                        <svg class="w-5 h-5 block dark:hidden text-indigo-700 group-hover:-rotate-12 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </button>
+                    <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center px-6 py-2.5 btn-shimmer text-white font-bold rounded-full shadow-lg shadow-indigo-500/30 text-sm transform hover:-translate-y-0.5 transition-all focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-900">
+                        Join Discord
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="relative z-10 pt-32 pb-20 px-4 sm:px-6 overflow-hidden focus:outline-none" tabindex="-1">
+        
+        <!-- Hero Section -->
+        <section class="max-w-5xl mx-auto text-center mb-24 reveal active relative py-20" aria-labelledby="hero-title">
+            
+            <!-- Super Glow Effect -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-pink-400/20 dark:bg-fuchsia-600/15 rounded-full blur-[100px] -z-10 animate-pulse-glow"></div>
+            
+            <h1 id="hero-title" class="font-heading text-6xl sm:text-7xl md:text-8xl font-bold mb-8 text-gray-900 dark:text-white drop-shadow-sm tracking-tight leading-tight">
+                Team <br class="sm:hidden" />
+                <span class="animate-gradient-text" data-text="Gelatofish">Gelatofish</span>
+            </h1>
+            
+            <p class="text-xl md:text-3xl font-bold text-gray-700 dark:text-gray-100 max-w-3xl mx-auto leading-relaxed mb-6">
+                A team of people who use Discord, making it sweeter for everyone.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+                <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-4 btn-shimmer text-white font-bold rounded-full shadow-xl hover:shadow-indigo-500/40 text-lg transition-all transform hover:-translate-y-1">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.418 2.157-2.418 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.418-2.157 2.418z"/></svg>
+                    Join Discord
+                </a>
+            </div>
+
+            <!-- Scroll Down Indicator -->
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 animate-bounce-subtle opacity-70">
+                <svg class="w-8 h-8 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 mb-32" aria-label="Our Features">
+            
+            <div class="glass-panel rounded-3xl p-8 md:p-10 reveal border-t-4 border-pink-400 dark:border-fuchsia-500 hover:transform hover:-translate-y-1 transition-transform duration-300">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="p-3.5 bg-pink-100 dark:bg-fuchsia-900/40 rounded-2xl text-pink-600 dark:text-fuchsia-200">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h2 class="font-heading text-2xl font-bold text-gray-900 dark:text-white">Our Mission</h2>
+                </div>
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-medium">
+                    Team Gelatofish is a team of passionate Discord users. We believe customization shouldn't be locked behind a paywall, so we foster community creativity by building tools that allow users to express themselves freely.
+                </p>
+            </div>
+
+            <div class="glass-panel rounded-3xl p-8 md:p-10 reveal delay-100 border-t-4 border-indigo-400 dark:border-cyan-500 hover:transform hover:-translate-y-1 transition-transform duration-300">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="p-3.5 bg-indigo-100 dark:bg-cyan-900/40 rounded-2xl text-indigo-600 dark:text-cyan-200">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    </div>
+                    <h2 class="font-heading text-2xl font-bold text-gray-900 dark:text-white">What We Offer</h2>
+                </div>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 mt-1 text-green-600 dark:text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-800 dark:text-gray-200 font-medium">Animated profile pictures & dynamic avatars</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 mt-1 text-green-600 dark:text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-800 dark:text-gray-200 font-medium">Custom, non-official badges for engagement</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 mt-1 text-green-600 dark:text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-800 dark:text-gray-200 font-medium">Free client-side decorations & banners</span>
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- Partners Section -->
+        <section class="max-w-7xl mx-auto mb-20 reveal" aria-labelledby="partners-title">
+            <div class="text-center mb-12">
+                <h3 id="partners-title" class="font-heading text-4xl font-bold mb-4 text-gray-900 dark:text-white">Our Ecosystem</h3>
+                <p class="text-gray-600 dark:text-gray-400 text-lg">Collaborating with the best to bring you more.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+                
+                <!-- Partner: UserPFP -->
+                <a href="https://userpfp.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative overflow-hidden rounded-3xl block h-full focus:ring-4 focus:ring-brand-userpfp/50 outline-none reveal">
+                    <div class="absolute inset-0 bg-[#1a1a1a] border border-gray-800 transition-colors"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#00ff9d]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative p-6 flex flex-col items-center h-full text-center transition-transform duration-300 group-hover:-translate-y-1">
+                        <div class="w-16 h-16 rounded-2xl bg-[#1a1a1a] border-2 border-[#00ff9d] mb-4 flex items-center justify-center shadow-[0_0_15px_rgba(0,255,157,0.3)] group-hover:scale-110 transition-transform overflow-hidden">
+                            <img src="https://i.ibb.co/Hf59TtBn/fd22f045065a5eacd0f87b33cf77f00f.webp" alt="UserPFP Logo" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="font-heading text-xl font-bold text-white mb-2">UserPFP</h4>
+                        <p class="text-sm text-gray-300 group-hover:text-white transition-colors mb-4">The dark-mode focused hub for profile customization.</p>
+                        <div class="mt-auto px-3 py-1 text-xs font-bold uppercase text-[#00ff9d] bg-[#00ff9d]/10 rounded-full border border-[#00ff9d]/20">Partner</div>
+                    </div>
+                </a>
+
+                <!-- Partner: Blackbox -->
+                <div class="group relative overflow-hidden rounded-3xl block h-full reveal delay-100">
+                    <div class="absolute inset-0 glass-panel"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-gray-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative p-6 flex flex-col items-center h-full text-center transition-transform duration-300 group-hover:-translate-y-1">
+                        <div class="w-16 h-16 rounded-2xl bg-gray-900 text-white mb-4 flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h4 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">Blackbox</h4>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 font-medium">Powering <span class="font-bold">UserBG</span>. Free custom banners for everyone.</p>
+                    </div>
+                </div>
+
+                <!-- Partner: Obaworkshop -->
+                <div class="group relative overflow-hidden rounded-3xl block h-full reveal delay-200">
+                    <div class="absolute inset-0 glass-panel"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative p-6 flex flex-col items-center h-full text-center transition-transform duration-300 group-hover:-translate-y-1">
+                        <div class="w-16 h-16 rounded-2xl bg-orange-500 text-white mb-4 flex items-center justify-center shadow-lg group-hover:-rotate-6 transition-transform">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                        </div>
+                        <h4 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">Obaworkshop</h4>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 font-medium">Unique <span class="font-bold">custom badges</span>. Show off your engagement.</p>
+                    </div>
+                </div>
+
+                <!-- Partner: Decor -->
+                <div class="group relative overflow-hidden rounded-3xl block h-full reveal delay-300">
+                    <div class="absolute inset-0 glass-panel"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative p-6 flex flex-col items-center h-full text-center transition-transform duration-300 group-hover:-translate-y-1">
+                        <div class="w-16 h-16 rounded-2xl bg-purple-500 text-white mb-4 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                        </div>
+                        <h4 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">Decor</h4>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 font-medium">Stunning <span class="font-bold">avatar decorations</span> available for free.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Spread the Love (Embeds) -->
+        <section class="max-w-6xl mx-auto mb-32 px-4 reveal" aria-labelledby="embeds-title">
+            <div class="text-center mb-10">
+                <h3 id="embeds-title" class="font-heading text-3xl font-bold mb-4 text-gray-900 dark:text-white">Spread the Love</h3>
+                <p class="text-gray-600 dark:text-gray-400">Show your support with these embeddable badges.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Light Badge -->
+                <div class="glass-panel p-8 rounded-3xl flex flex-col items-center relative overflow-hidden">
+                    <h4 class="font-heading text-lg font-bold text-gray-700 dark:text-gray-200 mb-4">Light Mode Badge</h4>
+                    <div class="bg-gray-100 p-6 rounded-xl mb-6 w-full flex justify-center border border-gray-200 shadow-inner">
+                        <!-- Preview Badge -->
+                        <a href="https://gelatofish.vercel.app/" target="_blank" class="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm hover:scale-105 transition-transform" style="text-decoration:none;">
+                            <svg width="24" height="15" viewBox="0 0 100 60" fill="#ec4899" style="flex-shrink:0;">
+                                <path d="M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z" />
+                                <circle cx="25" cy="25" r="3" fill="white" opacity="0.8"/>
+                            </svg>
+                            <span style="color:#1f2937; font-weight:bold; font-size:12px; font-family:sans-serif;">Team Gelatofish Partner</span>
+                        </a>
+                    </div>
+                    <div class="relative w-full">
+                        <textarea id="code-light" readonly class="w-full h-24 bg-gray-50/50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-lg p-3 text-xs font-mono text-gray-600 dark:text-gray-400 focus:ring-2 focus:ring-pink-400 outline-none resize-none" onclick="this.select()"><a href="https://gelatofish.vercel.app/" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;background:#ffffff;border:1px solid #e5e7eb;border-radius:99px;padding:8px 16px;font-family:sans-serif;box-shadow:0 2px 5px rgba(0,0,0,0.05);transition:transform 0.2s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"><svg width="24" height="24" viewBox="0 0 100 60" fill="#ec4899" style="flex-shrink:0"><path d="M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z"/><circle cx="25" cy="25" r="3" fill="white" opacity="0.8"/></svg><span style="color:#1f2937;font-weight:bold;font-size:14px">Team Gelatofish Partner</span></a></textarea>
+                        <button onclick="copyCode('code-light')" class="absolute top-2 right-2 p-1.5 bg-white dark:bg-gray-800 rounded-md shadow-sm hover:text-pink-500 transition-colors" title="Copy Code">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dark Badge -->
+                <div class="glass-panel p-8 rounded-3xl flex flex-col items-center relative overflow-hidden">
+                    <h4 class="font-heading text-lg font-bold text-gray-700 dark:text-gray-200 mb-4">Dark Mode Badge</h4>
+                    <div class="bg-gray-800 p-6 rounded-xl mb-6 w-full flex justify-center border border-gray-700 shadow-inner">
+                        <!-- Preview Badge -->
+                        <a href="https://gelatofish.vercel.app/" target="_blank" class="inline-flex items-center gap-2 bg-gray-900 border border-gray-700 rounded-full px-4 py-2 shadow-sm hover:scale-105 transition-transform" style="text-decoration:none;">
+                            <svg width="24" height="15" viewBox="0 0 100 60" fill="#f472b6" style="flex-shrink:0;">
+                                <path d="M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z" />
+                                <circle cx="25" cy="25" r="3" fill="white" opacity="0.8"/>
+                            </svg>
+                            <span style="color:#ffffff; font-weight:bold; font-size:12px; font-family:sans-serif;">Team Gelatofish Partner</span>
+                        </a>
+                    </div>
+                    <div class="relative w-full">
+                        <textarea id="code-dark" readonly class="w-full h-24 bg-gray-50/50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-lg p-3 text-xs font-mono text-gray-600 dark:text-gray-400 focus:ring-2 focus:ring-indigo-400 outline-none resize-none" onclick="this.select()"><a href="https://gelatofish.vercel.app/" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;background:#1f2937;border:1px solid #374151;border-radius:99px;padding:8px 16px;font-family:sans-serif;box-shadow:0 4px 6px rgba(0,0,0,0.1);transition:transform 0.2s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"><svg width="24" height="24" viewBox="0 0 100 60" fill="#f472b6" style="flex-shrink:0"><path d="M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z"/><circle cx="25" cy="25" r="3" fill="white" opacity="0.8"/></svg><span style="color:#ffffff;font-weight:bold;font-size:14px">Team Gelatofish Partner</span></a></textarea>
+                        <button onclick="copyCode('code-dark')" class="absolute top-2 right-2 p-1.5 bg-white dark:bg-gray-800 rounded-md shadow-sm hover:text-indigo-500 transition-colors" title="Copy Code">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 glass-panel mt-12 border-t border-white/20">
+        <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <!-- Cute SVG Fish in Footer -->
+                <svg class="w-8 h-8 text-pink-500 animate-swim-footer" viewBox="0 0 100 60" fill="currentColor">
+                    <path d="M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z" />
+                    <circle cx="25" cy="25" r="3" fill="white" opacity="0.8"/>
+                </svg>
+                <p class="text-sm text-gray-700 dark:text-gray-400 font-bold">
+                    &copy; <span id="year">2025</span> Team Gelatofish. Unofficial & Sweet.
+                </p>
+            </div>
+            <nav class="flex flex-wrap justify-center gap-6" aria-label="Footer Navigation">
+                <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-300 transition-colors font-bold text-sm">Discord</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 p-3 rounded-full bg-indigo-600 text-white shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 z-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+
+    <script>
+        // --- Copy Code Function ---
+        function copyCode(elementId) {
+            const copyText = document.getElementById(elementId);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); /* For mobile devices */
+            navigator.clipboard.writeText(copyText.value).then(() => {
+                // Could add a toast notification here
+                const btn = copyText.nextElementSibling;
+                const originalContent = btn.innerHTML;
+                btn.innerHTML = '<svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                }, 2000);
+            });
+        }
+
+        // --- Fish Generation & Parallax ---
+        const aquarium = document.getElementById('aquarium');
+        const fishCount = 15;
+        const fishColors = ['#f472b6', '#a78bfa', '#22d3ee', '#fbbf24'];
+
+        // Initial setup for aquarium fish
+        function setupAquarium() {
+            aquarium.innerHTML = '';
+            for(let i=0; i<fishCount; i++) {
+                const container = document.createElement('div');
+                container.className = 'absolute';
+                container.style.top = `${Math.random() * 90 + 5}%`;
+                container.style.opacity = Math.random() * 0.4 + 0.1;
+                // Store speed for parallax
+                container.dataset.speed = Math.random() * 0.8 + 0.2;
+                
+                const swimmer = document.createElement('div');
+                const size = Math.random() * 30 + 20;
+                const color = fishColors[Math.floor(Math.random() * fishColors.length)];
+                const direction = Math.random() > 0.5 ? 'right' : 'left';
+                const duration = Math.random() * 20 + 20;
+                
+                swimmer.style.width = `${size}px`;
+                swimmer.style.height = `${size * 0.6}px`;
+                
+                const scaleX = direction === 'left' ? 1 : -1;
+
+                swimmer.innerHTML = `
+                    <svg viewBox="0 0 100 60" fill="${color}" style="transform: scaleX(${scaleX})">
+                        <path d="M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z" />
+                        <circle cx="25" cy="25" r="3" fill="white" opacity="0.8"/>
+                    </svg>
+                `;
+                
+                // Animation class
+                swimmer.style.animation = direction === 'right' 
+                    ? `swimRight ${duration}s linear infinite` 
+                    : `swimLeft ${duration}s linear infinite`;
+                swimmer.style.animationDelay = `${Math.random() * -20}s`;
+                
+                container.appendChild(swimmer);
+                aquarium.appendChild(container);
+            }
+        }
+        setupAquarium();
+
+        // --- Bubble Generation (Re-added) ---
+        const bubbleContainer = document.getElementById('bubble-container');
+        const bubbleCount = 20;
+
+        function setupBubbles() {
+            bubbleContainer.innerHTML = '';
+            for(let i=0; i<bubbleCount; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                const size = Math.floor(Math.random() * 30 + 10) + 'px'; // Varied sizes
+                bubble.style.width = size;
+                bubble.style.height = size;
+                bubble.style.left = Math.floor(Math.random() * 100) + '%';
+                bubble.style.animationDuration = (Math.random() * 15 + 10) + 's'; // 10-25s duration
+                bubble.style.animationDelay = (Math.random() * 10) + 's'; // Delay for staggering
+                bubbleContainer.appendChild(bubble);
+            }
+        }
+        setupBubbles();
+
+        // Optimized Parallax Loop
+        function animateParallax() {
+            const scrollY = window.scrollY;
+            const containers = aquarium.children;
+            for(let i=0; i<containers.length; i++) {
+                const speed = parseFloat(containers[i].dataset.speed);
+                // Moving the container LEFT creates the illusion of the camera panning RIGHT
+                containers[i].style.transform = `translateX(${-scrollY * speed}px)`;
+            }
+            requestAnimationFrame(animateParallax);
+        }
+        animateParallax();
+
+
+        // --- Submarine & Theme Logic ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        const subOverlay = document.getElementById('flashbang-overlay');
+        const deepDiveOverlay = document.getElementById('deep-dive-overlay');
+
+        // Force Dark Mode default
+        if (localStorage.theme === 'light') {
+            html.classList.remove('dark');
+        } else {
+            html.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = html.classList.contains('dark');
+            
+            if (isDark) {
+                // Switching to LIGHT MODE -> Trigger Flashbang
+                subOverlay.classList.add('active', 'run-flashbang');
+                
+                // Flash hits full white at roughly 0.9s. 
+                // We switch theme at 1.0s to ensure it's hidden.
+                
+                setTimeout(() => {
+                    html.classList.remove('dark');
+                    localStorage.theme = 'light';
+                }, 1000); 
+
+                // Cleanup after total animation (4s)
+                setTimeout(() => {
+                    subOverlay.classList.remove('active', 'run-flashbang');
+                }, 4000);
+                
+            } else {
+                // Switching to DARK MODE -> Trigger Deep Dive
+                deepDiveOverlay.classList.add('run-dive-animation');
+                
+                // Wait for the wave to cover screen (approx 1s)
+                setTimeout(() => {
+                    html.classList.add('dark');
+                    localStorage.theme = 'dark';
+                }, 1000);
+
+                // Cleanup
+                setTimeout(() => {
+                    deepDiveOverlay.classList.remove('run-dive-animation');
+                }, 2500);
+            }
+        });
+
+        // --- Dynamic Footer Year ---
+        const yearSpan = document.getElementById('year');
+        const currentYear = new Date().getFullYear();
+        yearSpan.textContent = currentYear > 2025 ? `2025-${currentYear}` : '2025';
+
+        // --- Navbar Scroll Effect ---
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            const isScrolled = window.scrollY > 20;
+            const navClasses = ['bg-white/90', 'dark:bg-[#0f0c29]/90', 'backdrop-blur-xl', 'shadow-lg', 'border-white/20'];
+            
+            if (isScrolled) {
+                nav.classList.add(...navClasses);
+                nav.classList.remove('border-transparent');
+            } else {
+                nav.classList.remove(...navClasses);
+                nav.classList.add('border-transparent');
+            }
+
+            // Back to Top
+            const backToTopBtn = document.getElementById('back-to-top');
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.remove('translate-y-20', 'opacity-0');
+            } else {
+                backToTopBtn.classList.add('translate-y-20', 'opacity-0');
+            }
+        });
+
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // --- Scroll Reveal ---
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+            revealElements.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
 </body>
 </html>
