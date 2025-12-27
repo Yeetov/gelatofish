@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Team Gelatofish: A team of passionate Discord users building unofficial customization tools including animated avatars, badges, and decorations.">
     <title>Team Gelatofish | Sweetening Discord</title>
+    <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'><path d='M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z' fill='%23ec4899'/><circle cx='25' cy='25' r='3' fill='white'/></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     
@@ -391,11 +392,9 @@
                 <!-- Logo -->
                 <a href="#" class="flex items-center gap-3 group focus:rounded-lg" aria-label="Team Gelatofish Home">
                     <div class="w-10 h-10 bg-white/90 dark:bg-indigo-950/50 rounded-full flex items-center justify-center backdrop-blur-md shadow-sm group-hover:rotate-12 transition-transform duration-500 border border-white/40 dark:border-white/10">
-                       <svg viewBox="0 0 100 100" class="w-6 h-6 text-pink-500 dark:text-fuchsia-400" aria-hidden="true" fill="currentColor">
-                           <path d="M50 20 C30 20 15 35 15 55 C15 75 30 90 50 90 C70 90 85 75 85 55 C85 35 70 20 50 20 Z" opacity="0.9"/>
-                           <path d="M85 55 L98 40 L98 70 Z" />
-                           <circle cx="35" cy="45" r="5" fill="white"/>
-                           <path d="M50 15 L30 35 L70 35 Z" class="text-yellow-400 dark:text-violet-500" fill="currentColor" />
+                       <svg viewBox="0 0 100 60" class="w-6 h-6 text-pink-500 dark:text-fuchsia-400" aria-hidden="true" fill="currentColor">
+                           <path d="M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z" />
+                           <circle cx="25" cy="25" r="3" fill="white" opacity="0.8"/>
                        </svg>
                     </div>
                     <span class="font-heading font-bold text-xl tracking-wide group-hover:text-pink-600 dark:group-hover:text-fuchsia-300 transition-colors">Gelatofish</span>
@@ -409,9 +408,11 @@
                         <!-- Moon -->
                         <svg class="w-5 h-5 block dark:hidden text-indigo-700 group-hover:-rotate-12 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
                     </button>
-                    <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center px-6 py-2.5 btn-shimmer text-white font-bold rounded-full shadow-lg shadow-indigo-500/30 text-sm transform hover:-translate-y-0.5 transition-all focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-900">
+                    <!-- Discord Button (Disabled state) -->
+                    <button disabled class="hidden sm:inline-flex items-center px-8 py-4 bg-gray-400 text-white font-bold rounded-full shadow-none text-lg cursor-not-allowed opacity-70">
+                        <svg class="w-6 h-6 mr-2 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.418 2.157-2.418 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.418-2.157 2.418z"/></svg>
                         Join Discord
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -436,10 +437,10 @@
             </p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-                <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-4 btn-shimmer text-white font-bold rounded-full shadow-xl hover:shadow-indigo-500/40 text-lg transition-all transform hover:-translate-y-1">
-                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.418 2.157-2.418 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.418-2.157 2.418z"/></svg>
-                    Join Discord
-                </a>
+                <button disabled class="inline-flex items-center px-8 py-4 bg-gray-400 text-white font-bold rounded-full shadow-none text-lg cursor-not-allowed opacity-70">
+                    <svg class="w-6 h-6 mr-2 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.418 2.157-2.418 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.418-2.157 2.418z"/></svg>
+                    Join Discord (Coming Soon)
+                </button>
             </div>
 
             <!-- Scroll Down Indicator -->
@@ -498,7 +499,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
                 
                 <!-- Partner: UserPFP -->
-                <a href="https://userpfp.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative overflow-hidden rounded-3xl block h-full focus:ring-4 focus:ring-brand-userpfp/50 outline-none reveal">
+                <a href="https://userpfp.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative overflow-hidden rounded-3xl block h-full focus:ring-4 focus:ring-brand-userpfp/50 outline-none reveal col-span-1 sm:col-span-2 lg:col-span-4 max-w-md mx-auto w-full">
                     <div class="absolute inset-0 bg-[#1a1a1a] border border-gray-800 transition-colors"></div>
                     <div class="absolute inset-0 bg-gradient-to-br from-[#00ff9d]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div class="relative p-6 flex flex-col items-center h-full text-center transition-transform duration-300 group-hover:-translate-y-1">
@@ -506,102 +507,102 @@
                             <img src="https://i.ibb.co/Hf59TtBn/fd22f045065a5eacd0f87b33cf77f00f.webp" alt="UserPFP Logo" class="w-full h-full object-cover">
                         </div>
                         <h4 class="font-heading text-xl font-bold text-white mb-2">UserPFP</h4>
-                        <p class="text-sm text-gray-300 group-hover:text-white transition-colors mb-4">The dark-mode focused hub for profile customization.</p>
+                        <p class="text-sm text-gray-300 group-hover:text-white transition-colors mb-4 leading-relaxed">
+                            UserPFP is a client modification that unlocks animated profile pictures on Discord without Nitro. It also supports API images and GIFs (such as random duck or cat images), visible to all other users of the mod.
+                        </p>
                         <div class="mt-auto px-3 py-1 text-xs font-bold uppercase text-[#00ff9d] bg-[#00ff9d]/10 rounded-full border border-[#00ff9d]/20">Partner</div>
                     </div>
                 </a>
 
-                <!-- Partner: Blackbox -->
-                <div class="group relative overflow-hidden rounded-3xl block h-full reveal delay-100">
-                    <div class="absolute inset-0 glass-panel"></div>
-                    <div class="absolute inset-0 bg-gradient-to-br from-gray-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="relative p-6 flex flex-col items-center h-full text-center transition-transform duration-300 group-hover:-translate-y-1">
-                        <div class="w-16 h-16 rounded-2xl bg-gray-900 text-white mb-4 flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        </div>
-                        <h4 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">Blackbox</h4>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 font-medium">Powering <span class="font-bold">UserBG</span>. Free custom banners for everyone.</p>
-                    </div>
+                <!-- Partner: Blackbox (Hidden) -->
+                <div class="hidden group relative overflow-hidden rounded-3xl block h-full reveal delay-100">
+                    <!-- ... hidden ... -->
                 </div>
 
-                <!-- Partner: Obaworkshop -->
-                <div class="group relative overflow-hidden rounded-3xl block h-full reveal delay-200">
-                    <div class="absolute inset-0 glass-panel"></div>
-                    <div class="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="relative p-6 flex flex-col items-center h-full text-center transition-transform duration-300 group-hover:-translate-y-1">
-                        <div class="w-16 h-16 rounded-2xl bg-orange-500 text-white mb-4 flex items-center justify-center shadow-lg group-hover:-rotate-6 transition-transform">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
-                        </div>
-                        <h4 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">Obaworkshop</h4>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 font-medium">Unique <span class="font-bold">custom badges</span>. Show off your engagement.</p>
-                    </div>
+                <!-- Partner: Obaworkshop (Hidden) -->
+                <div class="hidden group relative overflow-hidden rounded-3xl block h-full reveal delay-200">
+                    <!-- ... hidden ... -->
                 </div>
 
-                <!-- Partner: Decor -->
-                <div class="group relative overflow-hidden rounded-3xl block h-full reveal delay-300">
-                    <div class="absolute inset-0 glass-panel"></div>
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="relative p-6 flex flex-col items-center h-full text-center transition-transform duration-300 group-hover:-translate-y-1">
-                        <div class="w-16 h-16 rounded-2xl bg-purple-500 text-white mb-4 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
-                        </div>
-                        <h4 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">Decor</h4>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 font-medium">Stunning <span class="font-bold">avatar decorations</span> available for free.</p>
-                    </div>
+                <!-- Partner: Decor (Hidden) -->
+                <div class="hidden group relative overflow-hidden rounded-3xl block h-full reveal delay-300">
+                    <!-- ... hidden ... -->
                 </div>
 
             </div>
         </section>
 
-        <!-- Spread the Love (Embeds) -->
-        <section class="max-w-6xl mx-auto mb-32 px-4 reveal" aria-labelledby="embeds-title">
+        <!-- Customizable Badge Generator -->
+        <section class="max-w-5xl mx-auto mb-32 px-4 reveal" aria-labelledby="badge-builder-title">
             <div class="text-center mb-10">
-                <h3 id="embeds-title" class="font-heading text-3xl font-bold mb-4 text-gray-900 dark:text-white">Spread the Love</h3>
-                <p class="text-gray-600 dark:text-gray-400">Show your support with these embeddable badges.</p>
+                <h3 id="badge-builder-title" class="font-heading text-3xl font-bold mb-4 text-gray-900 dark:text-white">Create Your Badge</h3>
+                <p class="text-gray-600 dark:text-gray-400">Match the badge style to your own website. Updates automatically with our logo.</p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Light Badge -->
-                <div class="glass-panel p-8 rounded-3xl flex flex-col items-center relative overflow-hidden">
-                    <h4 class="font-heading text-lg font-bold text-gray-700 dark:text-gray-200 mb-4">Light Mode Badge</h4>
-                    <div class="bg-gray-100 p-6 rounded-xl mb-6 w-full flex justify-center border border-gray-200 shadow-inner">
-                        <!-- Preview Badge -->
-                        <a href="https://gelatofish.vercel.app/" target="_blank" class="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm hover:scale-105 transition-transform" style="text-decoration:none;">
-                            <svg width="24" height="15" viewBox="0 0 100 60" fill="#ec4899" style="flex-shrink:0;">
-                                <path d="M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z" />
-                                <circle cx="25" cy="25" r="3" fill="white" opacity="0.8"/>
-                            </svg>
-                            <span style="color:#1f2937; font-weight:bold; font-size:12px; font-family:sans-serif;">Team Gelatofish Partner</span>
+            <div class="glass-panel p-8 rounded-3xl grid md:grid-cols-2 gap-8 items-start">
+                
+                <!-- Left: Preview & Controls -->
+                <div class="flex flex-col gap-6">
+                    <!-- Live Preview Container -->
+                    <div class="bg-gray-100 dark:bg-gray-800/50 p-10 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-inner flex items-center justify-center h-48 transition-colors" id="preview-container">
+                        <!-- The Badge Preview (Simulated logic) -->
+                        <a href="https://gelatofish.vercel.app/" target="_blank" id="badge-preview" class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full shadow-md transition-transform hover:scale-105" style="text-decoration:none; background-color: #ffffff; border: 1px solid #e5e7eb;">
+                            <div id="badge-fish-icon" style="width: 24px; height: 15px; background-color: #ec4899; -webkit-mask: url(https://gelatofish.vercel.app/assets/fish.svg) no-repeat center; mask: url(https://gelatofish.vercel.app/assets/fish.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain;"></div>
+                            <span id="badge-text" style="color: #1f2937; font-weight: bold; font-size: 14px; font-family: sans-serif;">Team Gelatofish Partner</span>
                         </a>
                     </div>
-                    <div class="relative w-full">
-                        <textarea id="code-light" readonly class="w-full h-24 bg-gray-50/50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-lg p-3 text-xs font-mono text-gray-600 dark:text-gray-400 focus:ring-2 focus:ring-pink-400 outline-none resize-none" onclick="this.select()"><a href="https://gelatofish.vercel.app/" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;background:#ffffff;border:1px solid #e5e7eb;border-radius:99px;padding:8px 16px;font-family:sans-serif;box-shadow:0 2px 5px rgba(0,0,0,0.05);transition:transform 0.2s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"><svg width="24" height="24" viewBox="0 0 100 60" fill="#ec4899" style="flex-shrink:0"><path d="M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z"/><circle cx="25" cy="25" r="3" fill="white" opacity="0.8"/></svg><span style="color:#1f2937;font-weight:bold;font-size:14px">Team Gelatofish Partner</span></a></textarea>
-                        <button onclick="copyCode('code-light')" class="absolute top-2 right-2 p-1.5 bg-white dark:bg-gray-800 rounded-md shadow-sm hover:text-pink-500 transition-colors" title="Copy Code">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                        </button>
+
+                    <!-- Controls -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-500 dark:text-gray-400 mb-1">Background</label>
+                            <div class="flex items-center gap-2 bg-white dark:bg-gray-900/50 p-2 rounded-lg border border-gray-200 dark:border-gray-700">
+                                <input type="color" id="bg-color" value="#ffffff" class="w-8 h-8 rounded cursor-pointer border-0 p-0 bg-transparent">
+                                <span id="bg-hex" class="text-xs font-mono text-gray-600 dark:text-gray-300">#ffffff</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-500 dark:text-gray-400 mb-1">Text Color</label>
+                            <div class="flex items-center gap-2 bg-white dark:bg-gray-900/50 p-2 rounded-lg border border-gray-200 dark:border-gray-700">
+                                <input type="color" id="text-color" value="#1f2937" class="w-8 h-8 rounded cursor-pointer border-0 p-0 bg-transparent">
+                                <span id="text-hex" class="text-xs font-mono text-gray-600 dark:text-gray-300">#1f2937</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-500 dark:text-gray-400 mb-1">Fish Color</label>
+                            <div class="flex items-center gap-2 bg-white dark:bg-gray-900/50 p-2 rounded-lg border border-gray-200 dark:border-gray-700">
+                                <input type="color" id="fish-color" value="#ec4899" class="w-8 h-8 rounded cursor-pointer border-0 p-0 bg-transparent">
+                                <span id="fish-hex" class="text-xs font-mono text-gray-600 dark:text-gray-300">#ec4899</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-500 dark:text-gray-400 mb-1">Border Color</label>
+                            <div class="flex items-center gap-2 bg-white dark:bg-gray-900/50 p-2 rounded-lg border border-gray-200 dark:border-gray-700">
+                                <input type="color" id="border-color" value="#e5e7eb" class="w-8 h-8 rounded cursor-pointer border-0 p-0 bg-transparent">
+                                <span id="border-hex" class="text-xs font-mono text-gray-600 dark:text-gray-300">#e5e7eb</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Presets -->
+                    <div class="flex gap-2">
+                        <button onclick="setPreset('light')" class="px-4 py-2 text-xs font-bold bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">Light Preset</button>
+                        <button onclick="setPreset('dark')" class="px-4 py-2 text-xs font-bold bg-gray-800 text-gray-200 rounded-lg hover:bg-gray-700 transition-colors">Dark Preset</button>
                     </div>
                 </div>
 
-                <!-- Dark Badge -->
-                <div class="glass-panel p-8 rounded-3xl flex flex-col items-center relative overflow-hidden">
-                    <h4 class="font-heading text-lg font-bold text-gray-700 dark:text-gray-200 mb-4">Dark Mode Badge</h4>
-                    <div class="bg-gray-800 p-6 rounded-xl mb-6 w-full flex justify-center border border-gray-700 shadow-inner">
-                        <!-- Preview Badge -->
-                        <a href="https://gelatofish.vercel.app/" target="_blank" class="inline-flex items-center gap-2 bg-gray-900 border border-gray-700 rounded-full px-4 py-2 shadow-sm hover:scale-105 transition-transform" style="text-decoration:none;">
-                            <svg width="24" height="15" viewBox="0 0 100 60" fill="#f472b6" style="flex-shrink:0;">
-                                <path d="M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z" />
-                                <circle cx="25" cy="25" r="3" fill="white" opacity="0.8"/>
-                            </svg>
-                            <span style="color:#ffffff; font-weight:bold; font-size:12px; font-family:sans-serif;">Team Gelatofish Partner</span>
-                        </a>
-                    </div>
-                    <div class="relative w-full">
-                        <textarea id="code-dark" readonly class="w-full h-24 bg-gray-50/50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-lg p-3 text-xs font-mono text-gray-600 dark:text-gray-400 focus:ring-2 focus:ring-indigo-400 outline-none resize-none" onclick="this.select()"><a href="https://gelatofish.vercel.app/" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;background:#1f2937;border:1px solid #374151;border-radius:99px;padding:8px 16px;font-family:sans-serif;box-shadow:0 4px 6px rgba(0,0,0,0.1);transition:transform 0.2s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"><svg width="24" height="24" viewBox="0 0 100 60" fill="#f472b6" style="flex-shrink:0"><path d="M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z"/><circle cx="25" cy="25" r="3" fill="white" opacity="0.8"/></svg><span style="color:#ffffff;font-weight:bold;font-size:14px">Team Gelatofish Partner</span></a></textarea>
-                        <button onclick="copyCode('code-dark')" class="absolute top-2 right-2 p-1.5 bg-white dark:bg-gray-800 rounded-md shadow-sm hover:text-indigo-500 transition-colors" title="Copy Code">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                <!-- Right: Code Output -->
+                <div class="flex flex-col h-full">
+                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-200 mb-2">Embed Code</label>
+                    <div class="relative flex-grow">
+                        <textarea id="generated-code" readonly class="w-full h-full min-h-[200px] bg-gray-900 border border-gray-700 rounded-xl p-4 text-xs font-mono text-green-400 focus:ring-2 focus:ring-pink-500 outline-none resize-none shadow-inner" spellcheck="false"></textarea>
+                        <button onclick="copyCode('generated-code')" class="absolute top-3 right-3 p-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg shadow-md transition-all group" title="Copy Code">
+                            <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                         </button>
                     </div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Copy and paste this code into your website's HTML. The logo auto-updates!</p>
                 </div>
+
             </div>
         </section>
 
@@ -632,19 +633,91 @@
     </button>
 
     <script>
+        // --- Badge Generator Logic (Auto-Updating via CSS Mask) ---
+        const inputs = {
+            bg: document.getElementById('bg-color'),
+            text: document.getElementById('text-color'),
+            fish: document.getElementById('fish-color'),
+            border: document.getElementById('border-color')
+        };
+        const hexLabels = {
+            bg: document.getElementById('bg-hex'),
+            text: document.getElementById('text-hex'),
+            fish: document.getElementById('fish-hex'),
+            border: document.getElementById('border-hex')
+        };
+        const preview = {
+            badge: document.getElementById('badge-preview'),
+            fish: document.getElementById('badge-fish-icon'),
+            text: document.getElementById('badge-text')
+        };
+        const outputCode = document.getElementById('generated-code');
+
+        // Embedded Fish SVG for the live preview only (ensures it works locally)
+        const previewFishSVG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cpath d='M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z' fill='black'/%3E%3Ccircle cx='25' cy='25' r='3' fill='black'/%3E%3C/svg%3E";
+
+        function updateBadge() {
+            // Update Preview Styles
+            preview.badge.style.backgroundColor = inputs.bg.value;
+            preview.badge.style.borderColor = inputs.border.value;
+            preview.text.style.color = inputs.text.value;
+            
+            // Update Preview Fish Color & Mask
+            preview.fish.style.backgroundColor = inputs.fish.value;
+            preview.fish.style.webkitMask = `url("${previewFishSVG}") no-repeat center`;
+            preview.fish.style.mask = `url("${previewFishSVG}") no-repeat center`;
+            preview.fish.style.webkitMaskSize = 'contain';
+            preview.fish.style.maskSize = 'contain';
+
+            // Update Hex Labels
+            hexLabels.bg.textContent = inputs.bg.value;
+            hexLabels.text.textContent = inputs.text.value;
+            hexLabels.fish.textContent = inputs.fish.value;
+            hexLabels.border.textContent = inputs.border.value;
+
+            // Generate Minified Code with CSS MASK for remote updating
+            // Uses the production URL so it updates automatically for users if you change the asset
+            const html = `<a href="https://gelatofish.vercel.app/" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:12px;background:${inputs.bg.value};border:1px solid ${inputs.border.value};border-radius:99px;padding:10px 20px;font-family:sans-serif;box-shadow:0 4px 6px rgba(0,0,0,0.1);transition:transform 0.2s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"><div style="width:24px;height:15px;background-color:${inputs.fish.value};-webkit-mask:url(https://gelatofish.vercel.app/assets/fish.svg) no-repeat center;mask:url(https://gelatofish.vercel.app/assets/fish.svg) no-repeat center;-webkit-mask-size:contain;mask-size:contain"></div><span style="color:${inputs.text.value};font-weight:bold;font-size:14px">Team Gelatofish Partner</span></a>`;
+            
+            outputCode.value = html;
+        }
+
+        // Add Event Listeners
+        Object.values(inputs).forEach(input => {
+            input.addEventListener('input', updateBadge);
+        });
+
+        // Presets
+        function setPreset(type) {
+            if (type === 'light') {
+                inputs.bg.value = '#ffffff';
+                inputs.text.value = '#1f2937';
+                inputs.fish.value = '#ec4899';
+                inputs.border.value = '#e5e7eb';
+            } else {
+                inputs.bg.value = '#1f2937';
+                inputs.text.value = '#ffffff';
+                inputs.fish.value = '#f472b6';
+                inputs.border.value = '#374151';
+            }
+            updateBadge();
+        }
+
+        // Initialize
+        updateBadge();
+
+
         // --- Copy Code Function ---
         function copyCode(elementId) {
             const copyText = document.getElementById(elementId);
             copyText.select();
-            copyText.setSelectionRange(0, 99999); /* For mobile devices */
+            copyText.setSelectionRange(0, 99999);
             navigator.clipboard.writeText(copyText.value).then(() => {
-                // Could add a toast notification here
+                // Visual feedback (change button icon briefly)
                 const btn = copyText.nextElementSibling;
-                const originalContent = btn.innerHTML;
-                btn.innerHTML = '<svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                setTimeout(() => {
-                    btn.innerHTML = originalContent;
-                }, 2000);
+                const original = btn.innerHTML;
+                btn.innerHTML = `<svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`;
+                setTimeout(() => btn.innerHTML = original, 2000);
             });
         }
 
