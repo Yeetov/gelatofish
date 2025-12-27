@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Team Gelatofish: A team of passionate Discord users building unofficial customization tools including animated avatars, badges, and decorations.">
     <title>Team Gelatofish | Sweetening Discord</title>
-    <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'><path d='M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z' fill='%23ec4899'/><circle cx='25' cy='25' r='3' fill='white'/></svg>">
+    <!-- Favicon -->
+    <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cpath d='M70 30 L 95 10 L 95 50 Z M 70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z' fill='%23ec4899'/%3E%3Ccircle cx='25' cy='25' r='3' fill='white'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     
@@ -103,12 +104,10 @@
         /* --- Backgrounds --- */
         body {
             transition: background 0.5s ease, color 0.5s ease;
-            /* Default Light Mode Background (Ocean/Pastel) */
             background: linear-gradient(135deg, #e0f2fe 0%, #ffe4e6 50%, #fae8ff 100%);
             min-height: 100vh;
         }
 
-        /* Dark Mode Override (Midnight Galaxy) */
         html.dark body {
             background: radial-gradient(circle at 50% -20%, #4c1d95 0%, #1e1b4b 40%, #020617 100%);
             background-attachment: fixed;
@@ -124,20 +123,18 @@
             transition: all 0.3s ease;
         }
         .dark .glass-panel {
-            /* Darker, purpler glass for better text readability */
             background: rgba(15, 10, 30, 0.6);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
         }
-        
         .glass-panel:hover {
             border-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.2);
         }
         .dark .glass-panel:hover {
             border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 40px -10px rgba(139, 92, 246, 0.2); /* Purple glow on hover */
+            box-shadow: 0 10px 40px -10px rgba(139, 92, 246, 0.2);
         }
 
         /* --- Utilities --- */
@@ -150,30 +147,11 @@
             opacity: 1;
             transform: translateY(0);
         }
-        
-        /* Stagger delays for grid items */
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
 
-        /* --- Fish Animations --- */
-        .fish-wrapper {
-            position: absolute;
-            will-change: transform;
-            pointer-events: none;
-        }
-        
-        /* Basic Swim Animation */
-        @keyframes swimRight {
-            from { transform: translateX(-100vw); }
-            to { transform: translateX(100vw); }
-        }
-        @keyframes swimLeft {
-            from { transform: translateX(100vw); }
-            to { transform: translateX(-100vw); }
-        }
-
-        /* Shimmer Button */
+        /* --- Shimmer Button --- */
         .btn-shimmer {
             background: linear-gradient(110deg, #4f46e5 45%, #818cf8 50%, #4f46e5 55%);
             background-size: 250% 100%;
@@ -190,12 +168,8 @@
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
             transition: 0.5s;
         }
-        .btn-shimmer:hover::after {
-            left: 100%;
-        }
-        .btn-shimmer:hover {
-            animation: shimmer 1.5s linear infinite;
-        }
+        .btn-shimmer:hover::after { left: 100%; }
+        .btn-shimmer:hover { animation: shimmer 1.5s linear infinite; }
 
         /* --- Text with Conformed Sprinkles --- */
         .animate-gradient-text {
@@ -209,7 +183,6 @@
             color: transparent;
             animation: gradient-x 4s linear infinite;
         }
-        
         .dark .animate-gradient-text {
              background-image: 
                 url("data:image/svg+xml,%3Csvg width='50' height='50' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='10' y='10' width='8' height='3' rx='1.5' fill='%23f472b6' transform='rotate(45 14 11.5)'/%3E%3Crect x='30' y='5' width='8' height='3' rx='1.5' fill='%23facc15' transform='rotate(-20 34 6.5)'/%3E%3Crect x='10' y='35' width='8' height='3' rx='1.5' fill='%2360a5fa' transform='rotate(80 14 36.5)'/%3E%3Crect x='35' y='30' width='8' height='3' rx='1.5' fill='%23ffffff' transform='rotate(10 39 31.5)'/%3E%3C/svg%3E"),
@@ -237,65 +210,44 @@
             100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
         }
 
-        /* --- "Think Fast" Flashbang Transition (Dark -> Light) --- */
-        #flashbang-overlay {
+        /* --- Fish Heaven Transition (Dark -> Light) --- */
+        #fish-heaven-overlay {
             position: fixed;
             inset: 0;
-            z-index: 9999;
+            z-index: 9998;
             pointer-events: none;
+            transform: translateY(100%);
+            /* Radiant sky/water gradient */
+            background: linear-gradient(to top, #e0f2fe, #bfdbfe, #ffffff);
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
-        #flashbang-overlay.active {
-            pointer-events: all;
+        
+        #fish-heaven-content {
+            opacity: 0;
+            transform: translateY(20px);
         }
 
-        /* The Grenade flying in */
-        @keyframes grenadeThrow {
-            0% { transform: translate(100vw, 100vh) rotate(0deg) scale(0.5); opacity: 1; }
-            70% { transform: translate(0, 0) rotate(-720deg) scale(1.5); opacity: 1; }
-            90% { transform: translate(0, 0) rotate(-720deg) scale(1.5); opacity: 1; }
-            100% { transform: translate(0, 0) rotate(-720deg) scale(1.5); opacity: 0; }
+        @keyframes heavenRise {
+            0% { transform: translateY(100%); }
+            40% { transform: translateY(0%); } /* Full Coverage */
+            60% { transform: translateY(0%); } /* Pause */
+            100% { transform: translateY(-100%); } /* Move up and away */
+        }
+        
+        @keyframes heavenContentFade {
+            0%, 30% { opacity: 0; transform: translateY(20px); }
+            50% { opacity: 1; transform: translateY(0); }
+            70% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
         }
 
-        /* The Pin flying off */
-        @keyframes pinFly {
-            0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
-            20% { transform: translate(50px, -50px) rotate(45deg); opacity: 1; }
-            100% { transform: translate(300px, -300px) rotate(180deg); opacity: 0; }
+        .run-heaven-animation {
+            animation: heavenRise 2.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
         }
-
-        /* "THINK FAST" Text pop */
-        @keyframes textPop {
-            0% { transform: scale(0); opacity: 0; }
-            60% { transform: scale(0); opacity: 0; }
-            70% { transform: scale(1.2); opacity: 1; } 
-            85% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(1.5); opacity: 0; }
-        }
-
-        /* The White Flash */
-        @keyframes pureWhiteFlash {
-            0% { opacity: 0; }
-            20% { opacity: 0; } /* Wait for grenade */
-            22% { opacity: 1; } /* BOOM */
-            65% { opacity: 1; } /* Hold White */
-            100% { opacity: 0; } /* Fade out */
-        }
-
-        .run-flashbang #grenade-group {
-            animation: grenadeThrow 1s ease-out forwards;
-        }
-        .run-flashbang #grenade-pin {
-            animation: pinFly 1s ease-out forwards;
-        }
-        .run-flashbang #think-fast-text {
-            animation: textPop 1s ease-out forwards;
-        }
-        .run-flashbang #flash-screen {
-            animation: pureWhiteFlash 4s ease-out forwards;
+        .run-heaven-animation #fish-heaven-content {
+            animation: heavenContentFade 2.5s ease-in-out forwards;
         }
 
         /* --- Deep Dive Transition (Light -> Dark) --- */
@@ -306,17 +258,137 @@
             pointer-events: none;
             transform: translateY(100%);
             background: linear-gradient(to top, #0f0c29, #302b63, #24243e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         @keyframes diveWave {
             0% { transform: translateY(100%); }
-            40% { transform: translateY(0%); } /* Full Coverage */
-            60% { transform: translateY(0%); } /* Pause */
-            100% { transform: translateY(-100%); } /* Move up and away */
+            40% { transform: translateY(0%); } 
+            60% { transform: translateY(0%); } 
+            100% { transform: translateY(-100%); } 
         }
 
         .run-dive-animation {
             animation: diveWave 2.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+        }
+
+        /* --- Fish Animations (Fixed Direction) --- */
+        .fish-wrapper {
+            position: absolute;
+            will-change: transform;
+            pointer-events: none;
+        }
+        
+        @keyframes swimRight {
+            from { transform: translateX(-20vw); }
+            to { transform: translateX(120vw); }
+        }
+        @keyframes swimLeft {
+            from { transform: translateX(120vw); }
+            to { transform: translateX(-20vw); }
+        }
+
+        /* --- Staff Styling --- */
+        .staff-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .dark .staff-card {
+            background: rgba(15, 10, 30, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .staff-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.15);
+        }
+        
+        .staff-banner-container {
+            width: 100%;
+            aspect-ratio: 20/9; 
+            overflow: hidden;
+            background-color: #374151;
+        }
+        
+        .staff-banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .staff-avatar-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: -40px auto 10px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .staff-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid white;
+            overflow: hidden;
+            background: #1f2937;
+            position: relative;
+            z-index: 2;
+        }
+        .dark .staff-avatar { border-color: #1f2937; }
+        
+        .pfp-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .staff-decoration {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%; 
+            height: auto;
+            aspect-ratio: 1/1; 
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .staff-info {
+            padding: 0 1.5rem 1.5rem;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .staff-name {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #111827;
+        }
+        .dark .staff-name { color: white; }
+        
+        .staff-badges {
+            display: flex;
+            gap: 4px;
+            margin: 8px 0;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .badge-icon {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
         }
 
         /* Custom Scrollbar */
@@ -328,39 +400,11 @@
 </head>
 <body class="text-gray-900 dark:text-gray-100 min-h-screen relative overflow-x-hidden selection:bg-pink-300 selection:text-pink-900">
 
-    <!-- Think Fast Flashbang Overlay (Dark -> Light) -->
-    <div id="flashbang-overlay">
-        <!-- White Flash Screen (Covers everything) -->
-        <div id="flash-screen" class="absolute inset-0 bg-white opacity-0 pointer-events-none z-50"></div>
-        
-        <!-- Content Container -->
-        <div class="relative z-40 flex flex-col items-center justify-center">
-            <h2 id="think-fast-text" class="text-7xl md:text-9xl font-heading font-black text-white italic tracking-tighter drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)] opacity-0 absolute mb-60 z-50 whitespace-nowrap stroke-black" style="-webkit-text-stroke: 3px black;">
-                THINK FAST!
-            </h2>
-            
-            <!-- Grenade SVG -->
-            <svg id="grenade-svg" viewBox="0 0 140 140" class="w-48 h-64 opacity-1 filter drop-shadow-2xl overflow-visible">
-                <g id="grenade-group" class="opacity-0">
-                    <!-- Body -->
-                    <rect x="40" y="40" width="60" height="80" rx="10" fill="#4b5563" stroke="#1f2937" stroke-width="3"/>
-                    <!-- Ridges -->
-                    <path d="M40 60 L 100 60 M 40 80 L 100 80 M 40 100 L 100 100" stroke="#1f2937" stroke-width="2"/>
-                    <!-- Top mechanism -->
-                    <rect x="55" y="20" width="30" height="20" fill="#374151" stroke="#1f2937" stroke-width="2"/>
-                    <rect x="65" y="10" width="10" height="15" fill="#9ca3af"/>
-                    <!-- Lever -->
-                    <path d="M60 25 L 30 35 L 30 100" stroke="#d1d5db" stroke-width="4" fill="none" stroke-linecap="round"/>
-                    <!-- Red Stripe -->
-                    <rect x="40" y="50" width="60" height="5" fill="#ef4444" opacity="0.8"/>
-                    
-                    <!-- Detached Pin flying away -->
-                    <g id="grenade-pin" style="transform-origin: center;">
-                        <circle cx="100" cy="30" r="10" fill="none" stroke="#d1d5db" stroke-width="3"/>
-                        <path d="M90 30 L 80 30" stroke="#d1d5db" stroke-width="3"/>
-                    </g>
-                </g>
-            </svg>
+    <!-- Fish Heaven Transition Overlay (Dark -> Light) -->
+    <div id="fish-heaven-overlay">
+        <div id="fish-heaven-content" class="flex flex-col items-center justify-center text-blue-500">
+            <svg class="w-20 h-20 mb-4 animate-bounce" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z"/></svg>
+            <h2 class="text-3xl font-heading font-bold tracking-widest uppercase">Coming Up for Air</h2>
         </div>
     </div>
 
@@ -372,46 +416,33 @@
         <h2 class="text-3xl font-heading font-bold tracking-widest uppercase">Going Deep</h2>
     </div>
 
-    <!-- Accessibility: Skip Link -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-white text-indigo-600 font-bold rounded-lg shadow-lg">
-        Skip to main content
-    </a>
-
-    <!-- Aquarium Container (Fixed Background) -->
-    <div id="aquarium" class="fixed inset-0 z-0 pointer-events-none overflow-hidden opacity-30 dark:opacity-60 transition-opacity duration-1000">
-        <!-- Fish and Bubbles will be injected here via JS -->
-    </div>
-    
-    <!-- Separate Bubble Container for better layering -->
+    <!-- Background Elements -->
+    <div id="aquarium" class="fixed inset-0 z-0 pointer-events-none overflow-hidden opacity-30 dark:opacity-60 transition-opacity duration-1000"></div>
     <div id="bubble-container" class="fixed inset-0 z-0 pointer-events-none overflow-hidden"></div>
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 transition-all duration-300 border-b border-transparent" id="navbar" role="navigation" aria-label="Main Navigation">
+    <nav class="fixed w-full z-50 transition-all duration-300 border-b border-transparent" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <a href="#" class="flex items-center gap-3 group focus:rounded-lg" aria-label="Team Gelatofish Home">
-                    <div class="w-10 h-10 bg-white/90 dark:bg-indigo-950/50 rounded-full flex items-center justify-center backdrop-blur-md shadow-sm group-hover:rotate-12 transition-transform duration-500 border border-white/40 dark:border-white/10">
-                       <svg viewBox="0 0 100 60" class="w-6 h-6 text-pink-500 dark:text-fuchsia-400" aria-hidden="true" fill="currentColor">
-                           <path d="M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z" />
-                           <circle cx="25" cy="25" r="3" fill="white" opacity="0.8"/>
-                       </svg>
+                <a href="#" class="flex items-center gap-3 group focus:rounded-lg">
+                    <div class="w-10 h-10 bg-white/90 dark:bg-indigo-950/50 rounded-full flex items-center justify-center backdrop-blur-md shadow-sm group-hover:rotate-12 transition-transform duration-500 border border-white/40 dark:border-white/10 overflow-hidden relative">
+                        <!-- Simplified Static Fish Logo -->
+                        <svg class="w-6 h-6 text-pink-500 dark:text-fuchsia-400" viewBox="0 0 100 60" fill="currentColor">
+                            <path d="M70 30 L 95 10 L 95 50 Z M 70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z" />
+                            <circle cx="25" cy="25" r="3" fill="white"/>
+                        </svg>
                     </div>
                     <span class="font-heading font-bold text-xl tracking-wide group-hover:text-pink-600 dark:group-hover:text-fuchsia-300 transition-colors">Gelatofish</span>
                 </a>
 
-                <!-- Controls -->
                 <div class="flex items-center gap-4">
                     <button id="theme-toggle" class="p-2.5 rounded-full glass-panel hover:bg-white dark:hover:bg-white/10 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 group relative overflow-hidden" aria-label="Toggle Dark Mode">
-                        <!-- Sun -->
-                        <svg class="w-5 h-5 hidden dark:block text-yellow-300 drop-shadow-[0_0_8px_rgba(253,224,71,0.5)] group-hover:rotate-90 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        <!-- Moon -->
+                        <svg class="w-5 h-5 hidden dark:block text-yellow-300 group-hover:rotate-90 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                         <svg class="w-5 h-5 block dark:hidden text-indigo-700 group-hover:-rotate-12 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
                     </button>
-                    <!-- Discord Button (Disabled state) -->
                     <button disabled class="hidden sm:inline-flex items-center px-8 py-4 bg-gray-400 text-white font-bold rounded-full shadow-none text-lg cursor-not-allowed opacity-70">
                         <svg class="w-6 h-6 mr-2 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.418 2.157-2.418 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.418-2.157 2.418z"/></svg>
-                        Join Discord
+                        Join Discord (Coming Soon)
                     </button>
                 </div>
             </div>
@@ -422,28 +453,21 @@
     <main id="main-content" class="relative z-10 pt-32 pb-20 px-4 sm:px-6 overflow-hidden focus:outline-none" tabindex="-1">
         
         <!-- Hero Section -->
-        <section class="max-w-5xl mx-auto text-center mb-24 reveal active relative py-20" aria-labelledby="hero-title">
-            
-            <!-- Super Glow Effect -->
+        <section class="max-w-5xl mx-auto text-center mb-24 reveal active relative py-20">
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-pink-400/20 dark:bg-fuchsia-600/15 rounded-full blur-[100px] -z-10 animate-pulse-glow"></div>
-            
-            <h1 id="hero-title" class="font-heading text-6xl sm:text-7xl md:text-8xl font-bold mb-8 text-gray-900 dark:text-white drop-shadow-sm tracking-tight leading-tight">
+            <h1 class="font-heading text-6xl sm:text-7xl md:text-8xl font-bold mb-8 text-gray-900 dark:text-white drop-shadow-sm tracking-tight leading-tight">
                 Team <br class="sm:hidden" />
                 <span class="animate-gradient-text" data-text="Gelatofish">Gelatofish</span>
             </h1>
-            
             <p class="text-xl md:text-3xl font-bold text-gray-700 dark:text-gray-100 max-w-3xl mx-auto leading-relaxed mb-6">
                 A team of people who use Discord, making it sweeter for everyone.
             </p>
-            
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
                 <button disabled class="inline-flex items-center px-8 py-4 bg-gray-400 text-white font-bold rounded-full shadow-none text-lg cursor-not-allowed opacity-70">
                     <svg class="w-6 h-6 mr-2 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.418 2.157-2.418 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.418-2.157 2.418z"/></svg>
                     Join Discord (Coming Soon)
                 </button>
             </div>
-
-            <!-- Scroll Down Indicator -->
             <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 animate-bounce-subtle opacity-70">
                 <svg class="w-8 h-8 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
             </div>
@@ -451,11 +475,10 @@
 
         <!-- Features Grid -->
         <section class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 mb-32" aria-label="Our Features">
-            
             <div class="glass-panel rounded-3xl p-8 md:p-10 reveal border-t-4 border-pink-400 dark:border-fuchsia-500 hover:transform hover:-translate-y-1 transition-transform duration-300">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="p-3.5 bg-pink-100 dark:bg-fuchsia-900/40 rounded-2xl text-pink-600 dark:text-fuchsia-200">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
                     <h2 class="font-heading text-2xl font-bold text-gray-900 dark:text-white">Our Mission</h2>
                 </div>
@@ -463,30 +486,28 @@
                     Team Gelatofish is a team of passionate Discord users. We believe customization shouldn't be locked behind a paywall, so we foster community creativity by building tools that allow users to express themselves freely.
                 </p>
             </div>
-
             <div class="glass-panel rounded-3xl p-8 md:p-10 reveal delay-100 border-t-4 border-indigo-400 dark:border-cyan-500 hover:transform hover:-translate-y-1 transition-transform duration-300">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="p-3.5 bg-indigo-100 dark:bg-cyan-900/40 rounded-2xl text-indigo-600 dark:text-cyan-200">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                     </div>
                     <h2 class="font-heading text-2xl font-bold text-gray-900 dark:text-white">What We Offer</h2>
                 </div>
                 <ul class="space-y-4">
                     <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 mt-1 text-green-600 dark:text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <svg class="w-5 h-5 mt-1 text-green-600 dark:text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                         <span class="text-gray-800 dark:text-gray-200 font-medium">Animated profile pictures & dynamic avatars</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 mt-1 text-green-600 dark:text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <svg class="w-5 h-5 mt-1 text-green-600 dark:text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                         <span class="text-gray-800 dark:text-gray-200 font-medium">Custom, non-official badges for engagement</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 mt-1 text-green-600 dark:text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <svg class="w-5 h-5 mt-1 text-green-600 dark:text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                         <span class="text-gray-800 dark:text-gray-200 font-medium">Free client-side decorations & banners</span>
                     </li>
                 </ul>
             </div>
-
         </section>
 
         <!-- Partners Section -->
@@ -495,9 +516,7 @@
                 <h3 id="partners-title" class="font-heading text-4xl font-bold mb-4 text-gray-900 dark:text-white">Our Ecosystem</h3>
                 <p class="text-gray-600 dark:text-gray-400 text-lg">Collaborating with the best to bring you more.</p>
             </div>
-            
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
-                
                 <!-- Partner: UserPFP -->
                 <a href="https://userpfp.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative overflow-hidden rounded-3xl block h-full focus:ring-4 focus:ring-brand-userpfp/50 outline-none reveal col-span-1 sm:col-span-2 lg:col-span-4 max-w-md mx-auto w-full">
                     <div class="absolute inset-0 bg-[#1a1a1a] border border-gray-800 transition-colors"></div>
@@ -513,23 +532,22 @@
                         <div class="mt-auto px-3 py-1 text-xs font-bold uppercase text-[#00ff9d] bg-[#00ff9d]/10 rounded-full border border-[#00ff9d]/20">Partner</div>
                     </div>
                 </a>
-
-                <!-- Partner: Blackbox (Hidden) -->
-                <div class="hidden group relative overflow-hidden rounded-3xl block h-full reveal delay-100">
-                    <!-- ... hidden ... -->
-                </div>
-
-                <!-- Partner: Obaworkshop (Hidden) -->
-                <div class="hidden group relative overflow-hidden rounded-3xl block h-full reveal delay-200">
-                    <!-- ... hidden ... -->
-                </div>
-
-                <!-- Partner: Decor (Hidden) -->
-                <div class="hidden group relative overflow-hidden rounded-3xl block h-full reveal delay-300">
-                    <!-- ... hidden ... -->
-                </div>
-
+                <!-- Hidden Partners -->
+                <div class="hidden"></div>
             </div>
+        </section>
+
+        <!-- Meet the Team -->
+        <section class="max-w-6xl mx-auto mb-32 px-4 reveal" aria-labelledby="team-title">
+            <div class="text-center mb-12">
+                <h3 id="team-title" class="font-heading text-4xl font-bold mb-4 text-gray-900 dark:text-white">Meet the Team</h3>
+                <p class="text-gray-600 dark:text-gray-400 text-lg">The creative minds behind the sugar rush.</p>
+            </div>
+            <div id="staffLoader" class="text-center py-10">
+                <div class="inline-block w-8 h-8 border-4 border-pink-400 border-t-transparent rounded-full animate-spin"></div>
+                <p class="mt-4 text-gray-500 font-medium">Loading crew...</p>
+            </div>
+            <div id="staffGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center"></div>
         </section>
 
         <!-- Customizable Badge Generator -->
@@ -538,21 +556,19 @@
                 <h3 id="badge-builder-title" class="font-heading text-3xl font-bold mb-4 text-gray-900 dark:text-white">Create Your Badge</h3>
                 <p class="text-gray-600 dark:text-gray-400">Match the badge style to your own website. Updates automatically with our logo.</p>
             </div>
-            
             <div class="glass-panel p-8 rounded-3xl grid md:grid-cols-2 gap-8 items-start">
-                
-                <!-- Left: Preview & Controls -->
+                <!-- Controls -->
                 <div class="flex flex-col gap-6">
-                    <!-- Live Preview Container -->
                     <div class="bg-gray-100 dark:bg-gray-800/50 p-10 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-inner flex items-center justify-center h-48 transition-colors" id="preview-container">
-                        <!-- The Badge Preview (Simulated logic) -->
                         <a href="https://gelatofish.vercel.app/" target="_blank" id="badge-preview" class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full shadow-md transition-transform hover:scale-105" style="text-decoration:none; background-color: #ffffff; border: 1px solid #e5e7eb;">
-                            <div id="badge-fish-icon" style="width: 24px; height: 15px; background-color: #ec4899; -webkit-mask: url(https://gelatofish.vercel.app/assets/fish.svg) no-repeat center; mask: url(https://gelatofish.vercel.app/assets/fish.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain;"></div>
+                            <!-- Simplified Single Color Badge Fish -->
+                            <svg id="badge-fish-icon" width="24" height="15" viewBox="0 0 100 60" fill="#ec4899" style="flex-shrink:0;">
+                                <path d="M70 30 L 95 10 L 95 50 Z M 70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z" />
+                                <circle cx="25" cy="25" r="3" fill="white"/>
+                            </svg>
                             <span id="badge-text" style="color: #1f2937; font-weight: bold; font-size: 14px; font-family: sans-serif;">Team Gelatofish Partner</span>
                         </a>
                     </div>
-
-                    <!-- Controls -->
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs font-bold uppercase text-gray-500 dark:text-gray-400 mb-1">Background</label>
@@ -562,7 +578,7 @@
                             </div>
                         </div>
                         <div>
-                            <label class="block text-xs font-bold uppercase text-gray-500 dark:text-gray-400 mb-1">Text Color</label>
+                            <label class="block text-xs font-bold uppercase text-gray-500 dark:text-gray-400 mb-1">Text</label>
                             <div class="flex items-center gap-2 bg-white dark:bg-gray-900/50 p-2 rounded-lg border border-gray-200 dark:border-gray-700">
                                 <input type="color" id="text-color" value="#1f2937" class="w-8 h-8 rounded cursor-pointer border-0 p-0 bg-transparent">
                                 <span id="text-hex" class="text-xs font-mono text-gray-600 dark:text-gray-300">#1f2937</span>
@@ -576,22 +592,19 @@
                             </div>
                         </div>
                         <div>
-                            <label class="block text-xs font-bold uppercase text-gray-500 dark:text-gray-400 mb-1">Border Color</label>
+                            <label class="block text-xs font-bold uppercase text-gray-500 dark:text-gray-400 mb-1">Border</label>
                             <div class="flex items-center gap-2 bg-white dark:bg-gray-900/50 p-2 rounded-lg border border-gray-200 dark:border-gray-700">
                                 <input type="color" id="border-color" value="#e5e7eb" class="w-8 h-8 rounded cursor-pointer border-0 p-0 bg-transparent">
                                 <span id="border-hex" class="text-xs font-mono text-gray-600 dark:text-gray-300">#e5e7eb</span>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Quick Presets -->
                     <div class="flex gap-2">
                         <button onclick="setPreset('light')" class="px-4 py-2 text-xs font-bold bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">Light Preset</button>
                         <button onclick="setPreset('dark')" class="px-4 py-2 text-xs font-bold bg-gray-800 text-gray-200 rounded-lg hover:bg-gray-700 transition-colors">Dark Preset</button>
                     </div>
                 </div>
-
-                <!-- Right: Code Output -->
+                <!-- Output -->
                 <div class="flex flex-col h-full">
                     <label class="block text-sm font-bold text-gray-700 dark:text-gray-200 mb-2">Embed Code</label>
                     <div class="relative flex-grow">
@@ -602,20 +615,18 @@
                     </div>
                     <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Copy and paste this code into your website's HTML. The logo auto-updates!</p>
                 </div>
-
             </div>
         </section>
-
     </main>
 
     <!-- Footer -->
     <footer class="relative z-10 glass-panel mt-12 border-t border-white/20">
         <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-2">
-                <!-- Cute SVG Fish in Footer -->
-                <svg class="w-8 h-8 text-pink-500 animate-swim-footer" viewBox="0 0 100 60" fill="currentColor">
-                    <path d="M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z" />
-                    <circle cx="25" cy="25" r="3" fill="white" opacity="0.8"/>
+                <!-- Simple Static Fish in Footer -->
+                <svg class="w-8 h-8 text-pink-500 dark:text-fuchsia-400" viewBox="0 0 100 60" fill="currentColor">
+                    <path d="M70 30 L 95 10 L 95 50 Z M 70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z" />
+                    <circle cx="25" cy="25" r="3" fill="white"/>
                 </svg>
                 <p class="text-sm text-gray-700 dark:text-gray-400 font-bold">
                     &copy; <span id="year">2025</span> Team Gelatofish. Unofficial & Sweet.
@@ -633,7 +644,146 @@
     </button>
 
     <script>
-        // --- Badge Generator Logic (Auto-Updating via CSS Mask) ---
+        // --- Staff Logic ---
+        const staffIds = ["789872551731527690"]; // Only Aaron
+        
+        const manualBanners = {
+            "789872551731527690": "https://i.imgur.com/U3xaMjR.gif"
+        };
+        const customPfps = {};
+        let usrbgData = null;
+
+        async function fetchCustomPfps() {
+            try {
+                let res = await fetch('https://raw.githubusercontent.com/Yeetov/usrpfpwebsite/main/import.css');
+                if (!res.ok) res = await fetch('https://raw.githubusercontent.com/UserPFP/UserPFP/main/import.css');
+                if (!res.ok) return;
+                const css = await res.text();
+                const regex = /src\^="https:\/\/cdn\.discordapp\.com\/avatars\/(\d+)\/".*?url\(([^)]+)\)/g;
+                let match;
+                while ((match = regex.exec(css)) !== null) {
+                    customPfps[match[1]] = match[2].replace(/['"]/g, ''); 
+                }
+            } catch (e) { console.warn(e); }
+        }
+
+        async function fetchUsrbg() {
+            try {
+                const res = await fetch("https://usrbg.is-hardly.online/users");
+                if (res.ok) usrbgData = await res.json();
+            } catch (e) { console.warn(e); }
+        }
+
+        function getUsrbgUrl(userId) {
+            if (!usrbgData || !usrbgData.users[userId]) return null;
+            const { endpoint, bucket, prefix, users: { [userId]: etag } } = usrbgData;
+            return `${endpoint}/${bucket}/${prefix}${userId}?${etag}`;
+        }
+
+        async function loadStaff() {
+            const grid = document.getElementById('staffGrid');
+            const loader = document.getElementById('staffLoader');
+            if(!grid || !loader) return;
+
+            // Manual Fallback Data for when APIs fail (NetworkError)
+            const fallbackStaff = {
+                "789872551731527690": {
+                    discord_user: {
+                        username: "aaronateataco",
+                        global_name: "Aaron",
+                        avatar: null 
+                    },
+                    activities: []
+                }
+            };
+
+            try {
+                await Promise.allSettled([fetchCustomPfps(), fetchUsrbg()]);
+                
+                const userPromises = staffIds.map(async id => {
+                    try {
+                        const [lanyardRes, badgesRes, decorRes] = await Promise.all([
+                            fetch(`https://lanyard.equicord.org/v1/users/${id}`).then(r => r.json()).catch(e => null),
+                            fetch(`https://badges.equicord.org/${id}`).then(r => r.json()).catch(e => null),
+                            fetch(`https://decor.fieryflames.dev/api/users/${id}`).then(r => r.json()).catch(e => null)
+                        ]);
+
+                        let userData = null;
+                        if (lanyardRes && lanyardRes.success) {
+                            userData = lanyardRes.data;
+                        } else if (fallbackStaff[id]) {
+                            userData = fallbackStaff[id];
+                        } else {
+                            return null;
+                        }
+
+                        return { id, data: userData, badges: badgesRes || [], decor: decorRes };
+                    } catch(e) { 
+                        if(fallbackStaff[id]) return { id, data: fallbackStaff[id], badges: [], decor: null };
+                        return null; 
+                    }
+                });
+
+                const results = await Promise.all(userPromises);
+                let html = '';
+                results.forEach(r => { if(r) html += createStaffCard(r.data, r.id, r.badges, r.decor); });
+                loader.style.display = 'none';
+                if(html) {
+                    grid.innerHTML = html;
+                } else {
+                    grid.innerHTML = '<p class="text-center text-gray-500 w-full col-span-3">Unable to load crew information.</p>';
+                }
+            } catch(e) {
+                console.warn("Staff load failed", e);
+                loader.style.display = 'none';
+                grid.innerHTML = '<p class="text-center text-gray-500 w-full col-span-3">Unable to load crew information.</p>';
+            }
+        }
+
+        function createStaffCard(data, id, badgeData, decorData) {
+            const user = data.discord_user;
+            const avatar = customPfps[id] || (user.avatar ? `https://cdn.discordapp.com/avatars/${id}/${user.avatar}.${user.avatar.startsWith('a_')?'gif':'webp'}?size=128` : 'https://cdn.discordapp.com/embed/avatars/0.png');
+            let banner = getUsrbgUrl(id) || manualBanners[id] || "";
+            // Use background color fallback if no banner
+            const bannerSrc = banner ? banner : 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMzNzQxNTEiLz48L3N2Zz4=';
+            
+            // Re-enabled Badges
+            let badgesHtml = ''; 
+            if (badgeData && badgeData.badges) {
+                badgeData.badges.forEach(b => {
+                    const imgUrl = b.badge || b.image;
+                    // Filter out "Staff" badges if you want, but for now showing all user badges
+                    if(imgUrl) badgesHtml += `<img src="${imgUrl}" alt="${b.name||''}" class="badge-icon" title="${b.tooltip||b.name}">`;
+                });
+            }
+
+            let decorHtml = '';
+            if (decorData && decorData.decorationHash) {
+                const hash = decorData.decorationHash;
+                // Fixed squishing with object-fit: contain and explicit aspect ratio container
+                decorHtml = `<img class="staff-decoration" src="https://decorcdn.fieryflames.dev/${hash}.gif" onerror="this.onerror=null;this.src='https://decorcdn.fieryflames.dev/${hash}.png'" alt="">`;
+            }
+
+            return `
+                <div class="staff-card group">
+                    <div class="staff-banner-container">
+                        <img src="${bannerSrc}" class="staff-banner-img" alt="Banner">
+                    </div>
+                    <div class="staff-avatar-wrapper">
+                        <div class="staff-avatar">
+                            <img class="pfp-img" src="${avatar}" alt="${user.username}">
+                        </div>
+                        ${decorHtml}
+                    </div>
+                    <div class="staff-info">
+                        <div class="staff-name">${user.global_name || user.username}</div>
+                        <div class="text-xs text-gray-500 mb-2">@${user.username}</div>
+                        <div class="staff-badges">${badgesHtml}</div>
+                    </div>
+                </div>`;
+        }
+
+        // --- Badge Generator Logic ---
         const inputs = {
             bg: document.getElementById('bg-color'),
             text: document.getElementById('text-color'),
@@ -653,41 +803,26 @@
         };
         const outputCode = document.getElementById('generated-code');
 
-        // Embedded Fish SVG for the live preview only (ensures it works locally)
-        const previewFishSVG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cpath d='M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z' fill='black'/%3E%3Ccircle cx='25' cy='25' r='3' fill='black'/%3E%3C/svg%3E";
-
         function updateBadge() {
-            // Update Preview Styles
             preview.badge.style.backgroundColor = inputs.bg.value;
             preview.badge.style.borderColor = inputs.border.value;
             preview.text.style.color = inputs.text.value;
-            
-            // Update Preview Fish Color & Mask
-            preview.fish.style.backgroundColor = inputs.fish.value;
-            preview.fish.style.webkitMask = `url("${previewFishSVG}") no-repeat center`;
-            preview.fish.style.mask = `url("${previewFishSVG}") no-repeat center`;
-            preview.fish.style.webkitMaskSize = 'contain';
-            preview.fish.style.maskSize = 'contain';
+            preview.fish.setAttribute('fill', inputs.fish.value); // Reverted to fill for single path SVG
 
-            // Update Hex Labels
             hexLabels.bg.textContent = inputs.bg.value;
             hexLabels.text.textContent = inputs.text.value;
             hexLabels.fish.textContent = inputs.fish.value;
             hexLabels.border.textContent = inputs.border.value;
 
-            // Generate Minified Code with CSS MASK for remote updating
-            // Uses the production URL so it updates automatically for users if you change the asset
-            const html = `<a href="https://gelatofish.vercel.app/" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:12px;background:${inputs.bg.value};border:1px solid ${inputs.border.value};border-radius:99px;padding:10px 20px;font-family:sans-serif;box-shadow:0 4px 6px rgba(0,0,0,0.1);transition:transform 0.2s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"><div style="width:24px;height:15px;background-color:${inputs.fish.value};-webkit-mask:url(https://gelatofish.vercel.app/assets/fish.svg) no-repeat center;mask:url(https://gelatofish.vercel.app/assets/fish.svg) no-repeat center;-webkit-mask-size:contain;mask-size:contain"></div><span style="color:${inputs.text.value};font-weight:bold;font-size:14px">Team Gelatofish Partner</span></a>`;
-            
+            // Generate Minified Code (Single path SVG)
+            const html = `<a href="https://gelatofish.vercel.app/" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:12px;background:${inputs.bg.value};border:1px solid ${inputs.border.value};border-radius:99px;padding:10px 20px;font-family:sans-serif;box-shadow:0 4px 6px rgba(0,0,0,0.1);transition:transform 0.2s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"><svg width="24" height="15" viewBox="0 0 100 60" fill="${inputs.fish.value}" style="flex-shrink:0"><path d="M70 30 L 95 10 L 95 50 Z M 70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z"/><circle cx="25" cy="25" r="3" fill="white"/></svg><span style="color:${inputs.text.value};font-weight:bold;font-size:14px">Team Gelatofish Partner</span></a>`;
             outputCode.value = html;
         }
 
-        // Add Event Listeners
         Object.values(inputs).forEach(input => {
             input.addEventListener('input', updateBadge);
         });
 
-        // Presets
         function setPreset(type) {
             if (type === 'light') {
                 inputs.bg.value = '#ffffff';
@@ -702,18 +837,13 @@
             }
             updateBadge();
         }
-
-        // Initialize
         updateBadge();
 
-
-        // --- Copy Code Function ---
         function copyCode(elementId) {
             const copyText = document.getElementById(elementId);
             copyText.select();
             copyText.setSelectionRange(0, 99999);
             navigator.clipboard.writeText(copyText.value).then(() => {
-                // Visual feedback (change button icon briefly)
                 const btn = copyText.nextElementSibling;
                 const original = btn.innerHTML;
                 btn.innerHTML = `<svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`;
@@ -721,15 +851,14 @@
             });
         }
 
-        // --- Fish Generation & Parallax ---
+        // --- Fish & Bubbles Setup ---
         const aquarium = document.getElementById('aquarium');
-        const fishCount = 15;
+        const bubbleContainer = document.getElementById('bubble-container');
         const fishColors = ['#f472b6', '#a78bfa', '#22d3ee', '#fbbf24'];
 
-        // Initial setup for aquarium fish
         function setupAquarium() {
             aquarium.innerHTML = '';
-            for(let i=0; i<fishCount; i++) {
+            for(let i=0; i<15; i++) {
                 const container = document.createElement('div');
                 container.className = 'absolute';
                 container.style.top = `${Math.random() * 90 + 5}%`;
@@ -746,153 +875,109 @@
                 swimmer.style.width = `${size}px`;
                 swimmer.style.height = `${size * 0.6}px`;
                 
+                // Fixed Orientation Logic for CSS Animation
+                // If swimming LEFT (direction='left'), we want scaleX(1) because path draws a left-facing fish.
+                // If swimming RIGHT (direction='right'), we want scaleX(-1).
                 const scaleX = direction === 'left' ? 1 : -1;
 
-                swimmer.innerHTML = `
-                    <svg viewBox="0 0 100 60" fill="${color}" style="transform: scaleX(${scaleX})">
-                        <path d="M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z" />
-                        <circle cx="25" cy="25" r="3" fill="white" opacity="0.8"/>
-                    </svg>
-                `;
+                swimmer.innerHTML = `<svg viewBox="0 0 100 60" fill="${color}" style="transform: scaleX(${scaleX})"><path d="M70 30 C 50 10, 20 10, 10 30 C 20 50, 50 50, 70 30 Z M 70 30 L 90 10 L 90 50 Z" /><circle cx="25" cy="25" r="3" fill="white" opacity="0.8"/></svg>`;
                 
-                // Animation class
-                swimmer.style.animation = direction === 'right' 
-                    ? `swimRight ${duration}s linear infinite` 
-                    : `swimLeft ${duration}s linear infinite`;
+                // Set CSS animation class based on direction
+                swimmer.style.animation = direction === 'right' ? `swimRight ${duration}s linear infinite` : `swimLeft ${duration}s linear infinite`;
                 swimmer.style.animationDelay = `${Math.random() * -20}s`;
                 
                 container.appendChild(swimmer);
                 aquarium.appendChild(container);
             }
         }
-        setupAquarium();
-
-        // --- Bubble Generation (Re-added) ---
-        const bubbleContainer = document.getElementById('bubble-container');
-        const bubbleCount = 20;
 
         function setupBubbles() {
             bubbleContainer.innerHTML = '';
-            for(let i=0; i<bubbleCount; i++) {
+            for(let i=0; i<20; i++) {
                 const bubble = document.createElement('div');
                 bubble.classList.add('bubble');
-                const size = Math.floor(Math.random() * 30 + 10) + 'px'; // Varied sizes
+                const size = Math.floor(Math.random() * 30 + 10) + 'px';
                 bubble.style.width = size;
                 bubble.style.height = size;
                 bubble.style.left = Math.floor(Math.random() * 100) + '%';
-                bubble.style.animationDuration = (Math.random() * 15 + 10) + 's'; // 10-25s duration
-                bubble.style.animationDelay = (Math.random() * 10) + 's'; // Delay for staggering
+                bubble.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                bubble.style.animationDelay = (Math.random() * 10) + 's';
                 bubbleContainer.appendChild(bubble);
             }
         }
-        setupBubbles();
 
-        // Optimized Parallax Loop
         function animateParallax() {
             const scrollY = window.scrollY;
             const containers = aquarium.children;
             for(let i=0; i<containers.length; i++) {
                 const speed = parseFloat(containers[i].dataset.speed);
-                // Moving the container LEFT creates the illusion of the camera panning RIGHT
+                // Simple Parallax: Moves items slowly as user scrolls
                 containers[i].style.transform = `translateX(${-scrollY * speed}px)`;
             }
             requestAnimationFrame(animateParallax);
         }
+
+        setupAquarium();
+        setupBubbles();
         animateParallax();
+        loadStaff();
 
-
-        // --- Submarine & Theme Logic ---
+        // --- Theme Logic ---
         const themeToggle = document.getElementById('theme-toggle');
         const html = document.documentElement;
-        const subOverlay = document.getElementById('flashbang-overlay');
+        const heavenOverlay = document.getElementById('fish-heaven-overlay');
         const deepDiveOverlay = document.getElementById('deep-dive-overlay');
 
-        // Force Dark Mode default
-        if (localStorage.theme === 'light') {
-            html.classList.remove('dark');
-        } else {
-            html.classList.add('dark');
-        }
+        if (localStorage.theme === 'light') html.classList.remove('dark');
+        else html.classList.add('dark');
 
         themeToggle.addEventListener('click', () => {
             const isDark = html.classList.contains('dark');
-            
             if (isDark) {
-                // Switching to LIGHT MODE -> Trigger Flashbang
-                subOverlay.classList.add('active', 'run-flashbang');
-                
-                // Flash hits full white at roughly 0.9s. 
-                // We switch theme at 1.0s to ensure it's hidden.
-                
+                // To Light Mode: "Fish Heaven"
+                heavenOverlay.classList.add('run-heaven-animation');
                 setTimeout(() => {
                     html.classList.remove('dark');
                     localStorage.theme = 'light';
-                }, 1000); 
-
-                // Cleanup after total animation (4s)
-                setTimeout(() => {
-                    subOverlay.classList.remove('active', 'run-flashbang');
-                }, 4000);
-                
+                }, 1000);
+                setTimeout(() => heavenOverlay.classList.remove('run-heaven-animation'), 2500);
             } else {
-                // Switching to DARK MODE -> Trigger Deep Dive
+                // To Dark Mode: "Deep Dive"
                 deepDiveOverlay.classList.add('run-dive-animation');
-                
-                // Wait for the wave to cover screen (approx 1s)
                 setTimeout(() => {
                     html.classList.add('dark');
                     localStorage.theme = 'dark';
                 }, 1000);
-
-                // Cleanup
-                setTimeout(() => {
-                    deepDiveOverlay.classList.remove('run-dive-animation');
-                }, 2500);
+                setTimeout(() => deepDiveOverlay.classList.remove('run-dive-animation'), 2500);
             }
         });
 
-        // --- Dynamic Footer Year ---
+        // --- Utils ---
         const yearSpan = document.getElementById('year');
         const currentYear = new Date().getFullYear();
         yearSpan.textContent = currentYear > 2025 ? `2025-${currentYear}` : '2025';
 
-        // --- Navbar Scroll Effect ---
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             const isScrolled = window.scrollY > 20;
             const navClasses = ['bg-white/90', 'dark:bg-[#0f0c29]/90', 'backdrop-blur-xl', 'shadow-lg', 'border-white/20'];
+            if (isScrolled) { nav.classList.add(...navClasses); nav.classList.remove('border-transparent'); }
+            else { nav.classList.remove(...navClasses); nav.classList.add('border-transparent'); }
             
-            if (isScrolled) {
-                nav.classList.add(...navClasses);
-                nav.classList.remove('border-transparent');
-            } else {
-                nav.classList.remove(...navClasses);
-                nav.classList.add('border-transparent');
-            }
-
-            // Back to Top
-            const backToTopBtn = document.getElementById('back-to-top');
-            if (window.scrollY > 400) {
-                backToTopBtn.classList.remove('translate-y-20', 'opacity-0');
-            } else {
-                backToTopBtn.classList.add('translate-y-20', 'opacity-0');
-            }
+            const btn = document.getElementById('back-to-top');
+            if (window.scrollY > 400) btn.classList.remove('translate-y-20', 'opacity-0');
+            else btn.classList.add('translate-y-20', 'opacity-0');
         });
 
-        document.getElementById('back-to-top').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        document.getElementById('back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        // --- Scroll Reveal ---
         const revealElements = document.querySelectorAll('.reveal');
         const revealOnScroll = () => {
             const windowHeight = window.innerHeight;
             const elementVisible = 100;
             revealElements.forEach((reveal) => {
                 const elementTop = reveal.getBoundingClientRect().top;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveal.classList.add('active');
-                }
+                if (elementTop < windowHeight - elementVisible) reveal.classList.add('active');
             });
         };
         window.addEventListener('scroll', revealOnScroll);
